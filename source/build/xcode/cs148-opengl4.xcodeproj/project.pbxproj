@@ -1,0 +1,1133 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		9A21ED5C8C3C44E6B253EBDB /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 7D662E2E009C4BE18CE8CFCB /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				BCB6A1874E794673A46DEA02 /* CMake Rules */,
+			);
+			dependencies = (
+				FB16114B803E48EDAA371374 /* PBXTargetDependency */,
+				7E53F2F38B1C4366A09DAAC8 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		9BA74A0099E64EAB854B200B /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 486CBBF4EBB3458CAE0C0DFC /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				0E79C4EF48CD4C27AEC0FED0 /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		06606F824B5349C88AB17375 /* PerspectiveCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C097245971AA4049A7FC2E18 /* PerspectiveCamera.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		0B7854AC672743DBB930009E /* ForwardRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33A91231B2AB48F883BFDE09 /* ForwardRenderer.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		11F51236422440BC87FF1FC4 /* MediaLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C5880D8712874023AE72FDD3 /* MediaLayer.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		1243CF3E94EC451CB8121A34 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0C7F42E90159433F9CED6B69 /* main.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		161D8B541BC08534000A6B6D /* Assignment2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 161D8B521BC08534000A6B6D /* Assignment2.cpp */; };
+		194C445BC3C34E498ED7B7C7 /* SceneObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 10C1D69863A34093B3BCA6BB /* SceneObject.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		3F1056B6A236492698EFB52F /* TextureLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CAD4C78DD5DD4EE0B5F7CE2B /* TextureLoader.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		3F6D6A81B9CF4F21BDA2DFB0 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9010523E5609464280A4D83A /* Camera.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		430E35209BF241E2A1B0F8BD /* Assignment1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9F31EAD65A80420CBC81B7F5 /* Assignment1.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		6B6F27108C7F444186F8C030 /* PrimitiveCreator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7A81A39EDF434EC78DA6DF6B /* PrimitiveCreator.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		70F372A1B1D74EEBB6403685 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C4569D0E028248918160F806 /* Texture.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		8685C40F56BA4A0984086DCD /* Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 80F698FD362143E28DEC9127 /* Scene.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		903D67323EE34C0A84FA1B4F /* RenderingObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5150AD8005F4CB69AB4339B /* RenderingObject.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		984FEAC55B3E4C588442DA55 /* BlinnPhongShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E984DDDC401C4A768ACFC83A /* BlinnPhongShader.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		B41398E1F27147E2A40EB011 /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 914E00C083084DC98262CC8A /* Renderer.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		C15F8AA4D2974FD791FB8243 /* Light.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2474B96E1F3B486BAE0C3BA4 /* Light.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		D773A4795B2C480DB82B5F26 /* MeshLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3EF82E384B84C24A3B648CC /* MeshLoader.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		EE0A552C98384ADB84EE992F /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF09B711519B489E9E38174D /* Application.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		F6C54639596045D2ADFAB141 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3DFA4C4D1ADF45DDBC0F9526 /* ShaderProgram.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		22A11C285A1742A9963E1DA4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1EA326D1D074970965DC9D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F852CB06CB0412C9F9BFA74;
+			remoteInfo = cs148opengl4;
+		};
+		E390A312F98C410F82463D6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1EA326D1D074970965DC9D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BA74A0099E64EAB854B200B;
+			remoteInfo = ZERO_CHECK;
+		};
+		ECA5368EE21E429E88FDB3B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1EA326D1D074970965DC9D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9BA74A0099E64EAB854B200B;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0C7F42E90159433F9CED6B69 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = main.cpp; sourceTree = SOURCE_ROOT; };
+		10C1D69863A34093B3BCA6BB /* SceneObject.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = SceneObject.cpp; path = common/Scene/SceneObject.cpp; sourceTree = SOURCE_ROOT; };
+		113B6BAC2A8842CC85FA725A /* Assignment1.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Assignment1.h; path = assignment1/Assignment1.h; sourceTree = SOURCE_ROOT; };
+		161D8B521BC08534000A6B6D /* Assignment2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Assignment2.cpp; path = assignment2/Assignment2.cpp; sourceTree = "<group>"; };
+		161D8B531BC08534000A6B6D /* Assignment2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Assignment2.h; path = assignment2/Assignment2.h; sourceTree = "<group>"; };
+		1E278FD8C5BF42FFAB80D7FC /* TextureLoader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = TextureLoader.h; path = common/Utility/Texture/TextureLoader.h; sourceTree = SOURCE_ROOT; };
+		2474B96E1F3B486BAE0C3BA4 /* Light.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Light.cpp; path = common/Scene/Light/Light.cpp; sourceTree = SOURCE_ROOT; };
+		2643CEC9E6A746C3BBD95B69 /* Renderer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Renderer.h; path = common/Rendering/Renderer.h; sourceTree = SOURCE_ROOT; };
+		292592305F204EF9B56815EE /* LightProperties.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = LightProperties.h; path = common/Scene/Light/LightProperties.h; sourceTree = SOURCE_ROOT; };
+		33A91231B2AB48F883BFDE09 /* ForwardRenderer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ForwardRenderer.cpp; path = common/Rendering/ForwardRenderer.cpp; sourceTree = SOURCE_ROOT; };
+		3DFA4C4D1ADF45DDBC0F9526 /* ShaderProgram.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ShaderProgram.cpp; path = common/Rendering/Shaders/ShaderProgram.cpp; sourceTree = SOURCE_ROOT; };
+		440613A3C4994DD98C1267D0 /* Application.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Application.h; path = common/Application.h; sourceTree = SOURCE_ROOT; };
+		4FE2B39EE6334402B065BA45 /* ForwardRenderer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ForwardRenderer.h; path = common/Rendering/ForwardRenderer.h; sourceTree = SOURCE_ROOT; };
+		5317D575E4B044F196B35AC7 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		55AEABA349414456B060DD26 /* Camera.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Camera.h; path = common/Scene/Camera/Camera.h; sourceTree = SOURCE_ROOT; };
+		714ABD681CAB48EF8F614C9F /* MediaLayer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = MediaLayer.h; path = common/MediaLayer.h; sourceTree = SOURCE_ROOT; };
+		74CCB8A85395424FB972CEDA /* PerspectiveCamera.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = PerspectiveCamera.h; path = common/Scene/Camera/PerspectiveCamera.h; sourceTree = SOURCE_ROOT; };
+		77F96769373C48FCB9F98B91 /* BlinnPhongLightProperties.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = BlinnPhongLightProperties.h; path = common/Scene/Light/Properties/BlinnPhong/BlinnPhongLightProperties.h; sourceTree = SOURCE_ROOT; };
+		7A81A39EDF434EC78DA6DF6B /* PrimitiveCreator.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = PrimitiveCreator.cpp; path = common/Utility/Mesh/Simple/PrimitiveCreator.cpp; sourceTree = SOURCE_ROOT; };
+		7A9F4C7B7287459887D6C969 /* RenderingObject.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = RenderingObject.h; path = common/Rendering/RenderingObject.h; sourceTree = SOURCE_ROOT; };
+		7BE4B894A3424CEFA3DAC852 /* core.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = core.h; path = common/core.h; sourceTree = SOURCE_ROOT; };
+		807AEB2C20C84B8C9D665483 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		80F698FD362143E28DEC9127 /* Scene.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Scene.cpp; path = common/Scene/Scene.cpp; sourceTree = SOURCE_ROOT; };
+		8712FE3D0C464E9EB4429F4C /* SceneObject.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = SceneObject.h; path = common/Scene/SceneObject.h; sourceTree = SOURCE_ROOT; };
+		8F9001328B9348919A8B7403 /* Scene.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Scene.h; path = common/Scene/Scene.h; sourceTree = SOURCE_ROOT; };
+		9010523E5609464280A4D83A /* Camera.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Camera.cpp; path = common/Scene/Camera/Camera.cpp; sourceTree = SOURCE_ROOT; };
+		914E00C083084DC98262CC8A /* Renderer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Renderer.cpp; path = common/Rendering/Renderer.cpp; sourceTree = SOURCE_ROOT; };
+		96C56F505E32465990722C55 /* common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = common.h; path = common/common.h; sourceTree = SOURCE_ROOT; };
+		9F31EAD65A80420CBC81B7F5 /* Assignment1.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Assignment1.cpp; path = assignment1/Assignment1.cpp; sourceTree = SOURCE_ROOT; };
+		A09A93C88BEE420887C573D3 /* Texture.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Texture.h; path = common/Rendering/Textures/Texture.h; sourceTree = SOURCE_ROOT; };
+		A5150AD8005F4CB69AB4339B /* RenderingObject.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = RenderingObject.cpp; path = common/Rendering/RenderingObject.cpp; sourceTree = SOURCE_ROOT; };
+		A7F4484AA803419F9BEED1A2 /* PrimitiveCreator.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = PrimitiveCreator.h; path = common/Utility/Mesh/Simple/PrimitiveCreator.h; sourceTree = SOURCE_ROOT; };
+		C097245971AA4049A7FC2E18 /* PerspectiveCamera.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = PerspectiveCamera.cpp; path = common/Scene/Camera/PerspectiveCamera.cpp; sourceTree = SOURCE_ROOT; };
+		C3EF82E384B84C24A3B648CC /* MeshLoader.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = MeshLoader.cpp; path = common/Utility/Mesh/Loading/MeshLoader.cpp; sourceTree = SOURCE_ROOT; };
+		C4569D0E028248918160F806 /* Texture.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Texture.cpp; path = common/Rendering/Textures/Texture.cpp; sourceTree = SOURCE_ROOT; };
+		C5880D8712874023AE72FDD3 /* MediaLayer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = MediaLayer.cpp; path = common/MediaLayer.cpp; sourceTree = SOURCE_ROOT; };
+		CAD4C78DD5DD4EE0B5F7CE2B /* TextureLoader.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = TextureLoader.cpp; path = common/Utility/Texture/TextureLoader.cpp; sourceTree = SOURCE_ROOT; };
+		CDAFC4298D834764820119CF /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		CF09B711519B489E9E38174D /* Application.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Application.cpp; path = common/Application.cpp; sourceTree = SOURCE_ROOT; };
+		D1619269C6B34F12B370710B /* MeshLoader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = MeshLoader.h; path = common/Utility/Mesh/Loading/MeshLoader.h; sourceTree = SOURCE_ROOT; };
+		D4093669B9D04BC88CA0A37F /* ShaderProgram.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ShaderProgram.h; path = common/Rendering/Shaders/ShaderProgram.h; sourceTree = SOURCE_ROOT; };
+		DE9157EC443D4E409B8DFC89 /* BlinnPhongShader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = BlinnPhongShader.h; path = common/Rendering/Shaders/BlinnPhongShader.h; sourceTree = SOURCE_ROOT; };
+		E493AF202F484067B29D8D87 /* cs148opengl4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = cs148opengl4; sourceTree = BUILT_PRODUCTS_DIR; };
+		E984DDDC401C4A768ACFC83A /* BlinnPhongShader.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = BlinnPhongShader.cpp; path = common/Rendering/Shaders/BlinnPhongShader.cpp; sourceTree = SOURCE_ROOT; };
+		FA8C6CBE85C944088D82BE34 /* Light.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Light.h; path = common/Scene/Light/Light.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0A34FB8F711E4108B94A6A12 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E493AF202F484067B29D8D87 /* cs148opengl4 */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1895196FC66D43B684B5DFF1 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				113B6BAC2A8842CC85FA725A /* Assignment1.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		1A3D6686AC2D4710B78CB9C0 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				82F9120D21124EAA8EBAA9D0 /* Mesh */,
+				77F6E6B3FD1D42628A3E1E8D /* Texture */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		21BA0AEF6334474183553858 /* Rendering */ = {
+			isa = PBXGroup;
+			children = (
+				D18870133DAC4CCCBF956ED1 /* Shaders */,
+				7A7E48B2C9524095AB897FAB /* Textures */,
+				33A91231B2AB48F883BFDE09 /* ForwardRenderer.cpp */,
+				4FE2B39EE6334402B065BA45 /* ForwardRenderer.h */,
+				914E00C083084DC98262CC8A /* Renderer.cpp */,
+				2643CEC9E6A746C3BBD95B69 /* Renderer.h */,
+				A5150AD8005F4CB69AB4339B /* RenderingObject.cpp */,
+				7A9F4C7B7287459887D6C969 /* RenderingObject.h */,
+			);
+			name = Rendering;
+			sourceTree = "<group>";
+		};
+		2290AF63D9C04452A4D6BCA8 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				88522DE98A0C47EFBE19B5E8 /* Camera */,
+				7B51DBE616134136B5690F46 /* Light */,
+				80F698FD362143E28DEC9127 /* Scene.cpp */,
+				8F9001328B9348919A8B7403 /* Scene.h */,
+				10C1D69863A34093B3BCA6BB /* SceneObject.cpp */,
+				8712FE3D0C464E9EB4429F4C /* SceneObject.h */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
+		47C2D897B1764AB89EB35EFD /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		6B5356CBEDA148C68A2263CB /* Simple */ = {
+			isa = PBXGroup;
+			children = (
+				7A81A39EDF434EC78DA6DF6B /* PrimitiveCreator.cpp */,
+				A7F4484AA803419F9BEED1A2 /* PrimitiveCreator.h */,
+			);
+			name = Simple;
+			sourceTree = "<group>";
+		};
+		713D81CFF1684FC49770A016 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				C3EF82E384B84C24A3B648CC /* MeshLoader.cpp */,
+				D1619269C6B34F12B370710B /* MeshLoader.h */,
+			);
+			name = Loading;
+			sourceTree = "<group>";
+		};
+		77F6E6B3FD1D42628A3E1E8D /* Texture */ = {
+			isa = PBXGroup;
+			children = (
+				CAD4C78DD5DD4EE0B5F7CE2B /* TextureLoader.cpp */,
+				1E278FD8C5BF42FFAB80D7FC /* TextureLoader.h */,
+			);
+			name = Texture;
+			sourceTree = "<group>";
+		};
+		7A7E48B2C9524095AB897FAB /* Textures */ = {
+			isa = PBXGroup;
+			children = (
+				C4569D0E028248918160F806 /* Texture.cpp */,
+				A09A93C88BEE420887C573D3 /* Texture.h */,
+			);
+			name = Textures;
+			sourceTree = "<group>";
+		};
+		7B51DBE616134136B5690F46 /* Light */ = {
+			isa = PBXGroup;
+			children = (
+				2474B96E1F3B486BAE0C3BA4 /* Light.cpp */,
+				FA8C6CBE85C944088D82BE34 /* Light.h */,
+				292592305F204EF9B56815EE /* LightProperties.h */,
+				77F96769373C48FCB9F98B91 /* BlinnPhongLightProperties.h */,
+			);
+			name = Light;
+			sourceTree = "<group>";
+		};
+		82F9120D21124EAA8EBAA9D0 /* Mesh */ = {
+			isa = PBXGroup;
+			children = (
+				713D81CFF1684FC49770A016 /* Loading */,
+				6B5356CBEDA148C68A2263CB /* Simple */,
+			);
+			name = Mesh;
+			sourceTree = "<group>";
+		};
+		845900681B4A4C34AF1F31A1 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				9F31EAD65A80420CBC81B7F5 /* Assignment1.cpp */,
+				0C7F42E90159433F9CED6B69 /* main.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		88522DE98A0C47EFBE19B5E8 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				9010523E5609464280A4D83A /* Camera.cpp */,
+				55AEABA349414456B060DD26 /* Camera.h */,
+				C097245971AA4049A7FC2E18 /* PerspectiveCamera.cpp */,
+				74CCB8A85395424FB972CEDA /* PerspectiveCamera.h */,
+			);
+			name = Camera;
+			sourceTree = "<group>";
+		};
+		8877AAF791004E2FBA3654F9 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				C5D724D4B7CA47679D065CE7 /* CMake Rules */,
+				5317D575E4B044F196B35AC7 /* CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		AE7F098499BA433DBA0F4802 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				47C2D897B1764AB89EB35EFD /* CMake Rules */,
+				807AEB2C20C84B8C9D665483 /* CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		BA4C4C6F695143A798EC61C2 /* cs148opengl4 */ = {
+			isa = PBXGroup;
+			children = (
+				845900681B4A4C34AF1F31A1 /* Source Files */,
+				C54DBEDDDC0045B68466FBBB /* common */,
+				1895196FC66D43B684B5DFF1 /* Header Files */,
+				CDAFC4298D834764820119CF /* CMakeLists.txt */,
+			);
+			name = cs148opengl4;
+			sourceTree = "<group>";
+		};
+		C54DBEDDDC0045B68466FBBB /* common */ = {
+			isa = PBXGroup;
+			children = (
+				21BA0AEF6334474183553858 /* Rendering */,
+				2290AF63D9C04452A4D6BCA8 /* Scene */,
+				1A3D6686AC2D4710B78CB9C0 /* Utility */,
+				CF09B711519B489E9E38174D /* Application.cpp */,
+				440613A3C4994DD98C1267D0 /* Application.h */,
+				C5880D8712874023AE72FDD3 /* MediaLayer.cpp */,
+				714ABD681CAB48EF8F614C9F /* MediaLayer.h */,
+				96C56F505E32465990722C55 /* common.h */,
+				7BE4B894A3424CEFA3DAC852 /* core.h */,
+			);
+			name = common;
+			sourceTree = "<group>";
+		};
+		C5D724D4B7CA47679D065CE7 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		D18870133DAC4CCCBF956ED1 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				E984DDDC401C4A768ACFC83A /* BlinnPhongShader.cpp */,
+				DE9157EC443D4E409B8DFC89 /* BlinnPhongShader.h */,
+				3DFA4C4D1ADF45DDBC0F9526 /* ShaderProgram.cpp */,
+				D4093669B9D04BC88CA0A37F /* ShaderProgram.h */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
+		D2C6E954FE754C7A9837B086 = {
+			isa = PBXGroup;
+			children = (
+				161D8B521BC08534000A6B6D /* Assignment2.cpp */,
+				161D8B531BC08534000A6B6D /* Assignment2.h */,
+				DB41E5C337D041948A61FC74 /* Sources */,
+				D845E72082624ADB869FA2FF /* Resources */,
+				0A34FB8F711E4108B94A6A12 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D845E72082624ADB869FA2FF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DB41E5C337D041948A61FC74 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AE7F098499BA433DBA0F4802 /* ALL_BUILD */,
+				BA4C4C6F695143A798EC61C2 /* cs148opengl4 */,
+				8877AAF791004E2FBA3654F9 /* ZERO_CHECK */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8F852CB06CB0412C9F9BFA74 /* cs148opengl4 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80BBFCDA43F14FE998CD569B /* Build configuration list for PBXNativeTarget "cs148opengl4" */;
+			buildPhases = (
+				A5717FB9F94C452E8DE30EA5 /* Sources */,
+				495EE02F20044E90B05A66BA /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F26F645316534A0EB1D7069A /* PBXTargetDependency */,
+			);
+			name = cs148opengl4;
+			productName = cs148opengl4;
+			productReference = E493AF202F484067B29D8D87 /* cs148opengl4 */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F1EA326D1D074970965DC9D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+			};
+			buildConfigurationList = BACAE4D3B7814074A66EA77C /* Build configuration list for PBXProject "cs148-opengl4" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D2C6E954FE754C7A9837B086;
+			projectDirPath = ../../;
+			projectRoot = "";
+			targets = (
+				9A21ED5C8C3C44E6B253EBDB /* ALL_BUILD */,
+				9BA74A0099E64EAB854B200B /* ZERO_CHECK */,
+				8F852CB06CB0412C9F9BFA74 /* cs148opengl4 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E79C4EF48CD4C27AEC0FED0 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode -f /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		495EE02F20044E90B05A66BA /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode -f /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode/CMakeScripts/cs148opengl4_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		BCB6A1874E794673A46DEA02 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode -f /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A5717FB9F94C452E8DE30EA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				161D8B541BC08534000A6B6D /* Assignment2.cpp in Sources */,
+				430E35209BF241E2A1B0F8BD /* Assignment1.cpp in Sources */,
+				EE0A552C98384ADB84EE992F /* Application.cpp in Sources */,
+				11F51236422440BC87FF1FC4 /* MediaLayer.cpp in Sources */,
+				0B7854AC672743DBB930009E /* ForwardRenderer.cpp in Sources */,
+				B41398E1F27147E2A40EB011 /* Renderer.cpp in Sources */,
+				903D67323EE34C0A84FA1B4F /* RenderingObject.cpp in Sources */,
+				984FEAC55B3E4C588442DA55 /* BlinnPhongShader.cpp in Sources */,
+				F6C54639596045D2ADFAB141 /* ShaderProgram.cpp in Sources */,
+				70F372A1B1D74EEBB6403685 /* Texture.cpp in Sources */,
+				3F6D6A81B9CF4F21BDA2DFB0 /* Camera.cpp in Sources */,
+				06606F824B5349C88AB17375 /* PerspectiveCamera.cpp in Sources */,
+				C15F8AA4D2974FD791FB8243 /* Light.cpp in Sources */,
+				8685C40F56BA4A0984086DCD /* Scene.cpp in Sources */,
+				194C445BC3C34E498ED7B7C7 /* SceneObject.cpp in Sources */,
+				D773A4795B2C480DB82B5F26 /* MeshLoader.cpp in Sources */,
+				6B6F27108C7F444186F8C030 /* PrimitiveCreator.cpp in Sources */,
+				3F1056B6A236492698EFB52F /* TextureLoader.cpp in Sources */,
+				1243CF3E94EC451CB8121A34 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7E53F2F38B1C4366A09DAAC8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F852CB06CB0412C9F9BFA74 /* cs148opengl4 */;
+			targetProxy = 22A11C285A1742A9963E1DA4 /* PBXContainerItemProxy */;
+		};
+		F26F645316534A0EB1D7069A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BA74A0099E64EAB854B200B /* ZERO_CHECK */;
+			targetProxy = ECA5368EE21E429E88FDB3B3 /* PBXContainerItemProxy */;
+		};
+		FB16114B803E48EDAA371374 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9BA74A0099E64EAB854B200B /* ZERO_CHECK */;
+			targetProxy = E390A312F98C410F82463D6F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0179769DF83E4EE0B0C90ACF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"'ASSIGNMENT=1'",
+					"'SHADER_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/shaders'",
+					"'ASSET_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/assets'",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/leacoligado/Downloads/cs148opengl4/source/.,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glm,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glew/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/assimp/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/freeimage/distrib/osx,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		02ECC22121DC46EC9663F37B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode/build;
+			};
+			name = Debug;
+		};
+		068EBD715A3B46208B78CD96 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/SDL2/osx,
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"'ASSIGNMENT=1'",
+					"'SHADER_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/shaders'",
+					"'ASSET_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/assets'",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/leacoligado/Downloads/cs148opengl4/source/.,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glm,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glew/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/assimp/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/freeimage/distrib/osx,
+				);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /Users/leacoligado/Downloads/cs148opengl4/source/external/SDL2/osx;
+				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-Wall",
+					"-std=c++11",
+					"-Wno-missing-braces",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"-framework",
+					AGL,
+					"-framework",
+					OpenGL,
+					"-framework",
+					SDL2,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/glew/distrib/osx/lib/libGLEW.a,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/distrib/osx/libassimp.dylib,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/freeimage/distrib/osx/libfreeimage.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = cs148opengl4;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		148D562CA7B94784A6FA2301 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"'ASSIGNMENT=1'",
+					"'SHADER_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/shaders'",
+					"'ASSET_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/assets'",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/leacoligado/Downloads/cs148opengl4/source/.,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glm,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glew/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/assimp/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/freeimage/distrib/osx,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		1DB989DCEEFF44B4996F5F2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode/build;
+			};
+			name = Release;
+		};
+		374478C4C6D848639AD531DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/SDL2/osx,
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"'ASSIGNMENT=1'",
+					"'SHADER_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/shaders'",
+					"'ASSET_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/assets'",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/leacoligado/Downloads/cs148opengl4/source/.,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glm,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glew/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/assimp/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/freeimage/distrib/osx,
+				);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /Users/leacoligado/Downloads/cs148opengl4/source/external/SDL2/osx;
+				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-Wall",
+					"-std=c++11",
+					"-Wno-missing-braces",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"-framework",
+					AGL,
+					"-framework",
+					OpenGL,
+					"-framework",
+					SDL2,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/glew/distrib/osx/lib/libGLEW.a,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/distrib/osx/libassimp.dylib,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/freeimage/distrib/osx/libfreeimage.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = cs148opengl4;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		3EF7511B07C842268F8295C5 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"'ASSIGNMENT=1'",
+					"'SHADER_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/shaders'",
+					"'ASSET_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/assets'",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/leacoligado/Downloads/cs148opengl4/source/.,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glm,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glew/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/assimp/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/freeimage/distrib/osx,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		5978C4B2AF5244FB85377EC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"'ASSIGNMENT=1'",
+					"'SHADER_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/shaders'",
+					"'ASSET_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/assets'",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/leacoligado/Downloads/cs148opengl4/source/.,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glm,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glew/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/assimp/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/freeimage/distrib/osx,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		5AA6A0020DBF4434B02C12A5 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/SDL2/osx,
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"'ASSIGNMENT=1'",
+					"'SHADER_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/shaders'",
+					"'ASSET_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/assets'",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/leacoligado/Downloads/cs148opengl4/source/.,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glm,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glew/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/assimp/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/freeimage/distrib/osx,
+				);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /Users/leacoligado/Downloads/cs148opengl4/source/external/SDL2/osx;
+				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-Wall",
+					"-std=c++11",
+					"-Wno-missing-braces",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"-framework",
+					AGL,
+					"-framework",
+					OpenGL,
+					"-framework",
+					SDL2,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/glew/distrib/osx/lib/libGLEW.a,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/distrib/osx/libassimp.dylib,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/freeimage/distrib/osx/libfreeimage.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = cs148opengl4;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		6752AD98FB3F478BBBE899B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"'ASSIGNMENT=1'",
+					"'SHADER_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/shaders'",
+					"'ASSET_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/assets'",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/leacoligado/Downloads/cs148opengl4/source/.,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glm,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glew/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/assimp/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/freeimage/distrib/osx,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		68B3CD42B32B4CC9A0405BA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/SDL2/osx,
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"'ASSIGNMENT=1'",
+					"'SHADER_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/shaders'",
+					"'ASSET_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/assets'",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/leacoligado/Downloads/cs148opengl4/source/.,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glm,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glew/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/assimp/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/freeimage/distrib/osx,
+				);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = /Users/leacoligado/Downloads/cs148opengl4/source/external/SDL2/osx;
+				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNDEBUG",
+					"-Wall",
+					"-std=c++11",
+					"-Wno-missing-braces",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					"-framework",
+					AGL,
+					"-framework",
+					OpenGL,
+					"-framework",
+					SDL2,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/glew/distrib/osx/lib/libGLEW.a,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/distrib/osx/libassimp.dylib,
+					/Users/leacoligado/Downloads/cs148opengl4/source/external/freeimage/distrib/osx/libfreeimage.a,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = cs148opengl4;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		7ACC8C81DA1C4E70B3FF7BB8 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"'ASSIGNMENT=1'",
+					"'SHADER_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/shaders'",
+					"'ASSET_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/assets'",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/leacoligado/Downloads/cs148opengl4/source/.,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glm,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glew/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/assimp/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/freeimage/distrib/osx,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		8B62EA57C0824640B6439C82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"'ASSIGNMENT=1'",
+					"'SHADER_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/shaders'",
+					"'ASSET_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/assets'",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/leacoligado/Downloads/cs148opengl4/source/.,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glm,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glew/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/assimp/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/freeimage/distrib/osx,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		8E003B8541CF46DE932FF6A1 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode/build;
+			};
+			name = MinSizeRel;
+		};
+		BA1ADA108B114ACDBD6EA0CD /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode/build;
+			};
+			name = RelWithDebInfo;
+		};
+		FAD365BFA69049DA8CE5ABE8 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					"'ASSIGNMENT=1'",
+					"'SHADER_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/shaders'",
+					"'ASSET_PATH=/Users/leacoligado/Downloads/cs148opengl4/source/assets'",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/leacoligado/Downloads/cs148opengl4/source/.,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glm,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/glew/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/assimp/include,
+					/Users/leacoligado/Downloads/cs148opengl4/source/./external/freeimage/distrib/osx,
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/leacoligado/Downloads/cs148opengl4/source/build/xcode;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		486CBBF4EBB3458CAE0C0DFC /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B62EA57C0824640B6439C82 /* Debug */,
+				5978C4B2AF5244FB85377EC4 /* Release */,
+				7ACC8C81DA1C4E70B3FF7BB8 /* MinSizeRel */,
+				3EF7511B07C842268F8295C5 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7D662E2E009C4BE18CE8CFCB /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6752AD98FB3F478BBBE899B7 /* Debug */,
+				0179769DF83E4EE0B0C90ACF /* Release */,
+				148D562CA7B94784A6FA2301 /* MinSizeRel */,
+				FAD365BFA69049DA8CE5ABE8 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		80BBFCDA43F14FE998CD569B /* Build configuration list for PBXNativeTarget "cs148opengl4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				374478C4C6D848639AD531DA /* Debug */,
+				68B3CD42B32B4CC9A0405BA9 /* Release */,
+				068EBD715A3B46208B78CD96 /* MinSizeRel */,
+				5AA6A0020DBF4434B02C12A5 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BACAE4D3B7814074A66EA77C /* Build configuration list for PBXProject "cs148-opengl4" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02ECC22121DC46EC9663F37B /* Debug */,
+				1DB989DCEEFF44B4996F5F2C /* Release */,
+				8E003B8541CF46DE932FF6A1 /* MinSizeRel */,
+				BA1ADA108B114ACDBD6EA0CD /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F1EA326D1D074970965DC9D0 /* Project object */;
+}
