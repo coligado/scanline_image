@@ -118,46 +118,22 @@ void Assignment3::SetupExample1()
         { GL_VERTEX_SHADER, "brdf/blinnphong/frag/blinnphong.vert" },
         { GL_FRAGMENT_SHADER, "brdf/blinnphong/frag/blinnphong.frag" }
     };
-    
-    std::unordered_map<GLenum, std::string> EpicShaderSpec = {
-        { GL_VERTEX_SHADER, "brdf/blinnphong/frag/blinnphong.vert" },
-        { GL_FRAGMENT_SHADER, "brdf/blinnphong/frag/blinnphong.frag" }
-    };
 #else
     std::unordered_map<GLenum, std::string> shaderSpec = {
         { GL_VERTEX_SHADER, "brdf/blinnphong/frag/noSubroutine/blinnphong.vert" },
         { GL_FRAGMENT_SHADER, "brdf/blinnphong/frag/noSubroutine/blinnphong.frag"}
     };
-    
-    std::unordered_map<GLenum, std::string> EpicShaderSpec = {
-        { GL_VERTEX_SHADER, "brdf/blinnphong/frag/blinnphong.vert" },
-        { GL_FRAGMENT_SHADER, "brdf/blinnphong/frag/blinnphong.frag" }
-    };
 #endif
     std::shared_ptr<BlinnPhongShader> shader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
     shader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
     shader->SetSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f), 40.f);
-    
+
     std::shared_ptr<BlinnPhongShader> groundShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
     shader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
-    
-    //Copied version (this is the one that we fuck with)
-    std::shared_ptr<BlinnPhongShader> EpicShader = std::make_shared<BlinnPhongShader>(EpicShaderSpec, GL_FRAGMENT_SHADER);
-    EpicShader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
-    EpicShader->SetSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f), 40.f);
-    
-    //Copied version (this is the one that we fuck with)
-    std::shared_ptr<BlinnPhongShader> EpicGroundShader = std::make_shared<BlinnPhongShader>(EpicShaderSpec, GL_FRAGMENT_SHADER);
-    EpicGroundShader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
 
     std::unique_ptr<BlinnPhongLightProperties> lightProperties = BlinnPhongShader::CreateLightProperties();
     lightProperties->diffuseColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
     lightProperties->specularColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
-    
-    //Copied version (this is the one that we fuck with)
-    std::unique_ptr<BlinnPhongLightProperties> EpicLightProperties = BlinnPhongShader::CreateLightProperties();
-    EpicLightProperties->diffuseColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
-    EpicLightProperties->specularColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
 
     pointLight = std::make_shared<Light>(std::move(lightProperties));
     pointLight->SetPosition(glm::vec3(10.f, 10.f, 10.f));

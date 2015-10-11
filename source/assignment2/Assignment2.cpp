@@ -29,7 +29,7 @@ glm::vec2 Assignment2::GetWindowSize() const
 
 void Assignment2::SetupScene()
 {
-    SetupExample2();
+    SetupExample1();
 }
 
 void Assignment2::SetupCamera()
@@ -189,15 +189,15 @@ void Assignment2::SetupExample2()
     scene->AddSceneObject(sceneObject2);
     
     // Created object: wine glass
-    std::vector<std::shared_ptr<RenderingObject>> meshTemplate3 = MeshLoader::LoadMesh(shader, "outlander/Model/wine_glass.obj");
-    if (meshTemplate3.empty()) {
-        std::cerr << "ERROR: Failed to load the model. Check your paths." << std::endl;
-        return;
-    }
-    sceneObject3 = std::make_shared<SceneObject>(meshTemplate3);
-    sceneObject3->AddScale(-0.2f);
-    sceneObject3->SetPosition(glm::vec3(5.f, 0.f, 0.f));
-    scene->AddSceneObject(sceneObject3);
+//    std::vector<std::shared_ptr<RenderingObject>> meshTemplate3 = MeshLoader::LoadMesh(shader, "outlander/Model/wine_glass.obj");
+//    if (meshTemplate3.empty()) {
+//        std::cerr << "ERROR: Failed to load the model. Check your paths." << std::endl;
+//        return;
+//    }
+//    sceneObject3 = std::make_shared<SceneObject>(meshTemplate3);
+//    sceneObject3->AddScale(-0.2f);
+//    sceneObject3->SetPosition(glm::vec3(5.f, 0.f, 0.f));
+//    scene->AddSceneObject(sceneObject3);
     
     std::unique_ptr<BlinnPhongLightProperties> lightProperties = BlinnPhongShader::CreateLightProperties();
     lightProperties->diffuseColor = glm::vec4(0.5f, 0.5f, 0.5f, 1.f);

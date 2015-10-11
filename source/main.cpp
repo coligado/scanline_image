@@ -3,7 +3,7 @@
 #include "FreeImage.h"
 
 #undef ASSIGNMENT
-#define ASSIGNMENT 2
+#define ASSIGNMENT 3
 
 #if ASSIGNMENT == 1
 #include "assignment1/Assignment1.h"

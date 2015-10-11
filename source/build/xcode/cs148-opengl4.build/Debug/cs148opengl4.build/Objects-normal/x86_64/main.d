@@ -144,4 +144,4 @@ dependencies: /Users/leacoligado/Downloads/cs148opengl4/source/main.cpp \
   /Users/leacoligado/Downloads/cs148opengl4/source/common/Rendering/Renderer.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/common/Rendering/ForwardRenderer.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/freeimage/distrib/osx/FreeImage.h \
-  /Users/leacoligado/Downloads/cs148opengl4/source/assignment2/Assignment2.h
+  /Users/leacoligado/Downloads/cs148opengl4/source/assignment3/Assignment3.h
