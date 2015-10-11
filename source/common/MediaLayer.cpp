@@ -44,6 +44,9 @@ void MediaLayer::InitializeSDL()
     SDL_GL_SetAttribute( SDL_GL_CONTEXT_MAJOR_VERSION, 4);
     SDL_GL_SetAttribute( SDL_GL_CONTEXT_MINOR_VERSION, 1); 
 
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 16);
+
     glm::vec2 windowSize(app->GetWindowSize());
     sdlWindow = SDL_CreateWindow("CS148 Fall 2015-2016", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
         windowSize.x, windowSize.y, SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
