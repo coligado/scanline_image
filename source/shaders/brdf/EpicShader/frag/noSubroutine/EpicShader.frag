@@ -82,10 +82,7 @@ vec4 pointLightSubroutine(vec4 worldPosition, vec3 worldNormal)
     //<-- SUM -->
     s = (bigD * bigF * bigG) / (dot(N, L) * dot(N, normalV) * 4);
 
-
     return genericLight.lightColor * dot(N, L) * (d + s);
-
-
 }
 
 vec4 globalLightSubroutine(vec4 worldPosition, vec3 worldNormal)
