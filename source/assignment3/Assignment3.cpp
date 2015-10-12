@@ -8,6 +8,7 @@
 //#include "instructor/Light/DirectionalLight.h"
 //#include "instructor/Light/HemisphereLight.h"
 #include "common/Rendering/Shaders/EpicShader.h"
+#include "common/Scene/Light/directionalLight.h"
 #include <cmath>
 
 Assignment3::Assignment3(std::shared_ptr<class Scene> inputScene, std::shared_ptr<class Camera> inputCamera):
@@ -131,14 +132,26 @@ void Assignment3::SetupExample1()
     shader->SetRoughness(0.5f);
     
     std::shared_ptr<EpicShader> groundShader = std::make_shared<EpicShader>(shaderSpec, GL_FRAGMENT_SHADER);
+    groundShader->SetMetallic(0.f);
+    groundShader->SetSpecular(0.f);
+    groundShader->SetRoughness(0.f);
 
     std::unique_ptr<EpicLightProperties> lightProperties = EpicShader::CreateLightProperties();
     lightProperties->lightColor = glm::vec4(2.f, 2.f, 2.f, 1.f);
 //    lightProperties->specularColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
+    
 
     pointLight = std::make_shared<Light>(std::move(lightProperties));
     pointLight->SetPosition(glm::vec3(10.f, 10.f, 10.f));
     scene->AddLight(pointLight);
+    
+    std::unique_ptr<EpicLightProperties> lightPropertiesNext = EpicShader::CreateLightProperties();
+    lightPropertiesNext->lightColor = glm::vec4(2.f, 2.f, 2.f, 1.f);
+    
+    sunLight = std::make_shared<directionalLight>(std::move(lightPropertiesNext));
+    sunLight->Rotate(glm::vec3(SceneObject::GetWorldRight()), PI / -4.f);
+    sunLight->Rotate(glm::vec3(SceneObject::GetWorldUp()), PI / 4.f);
+    scene->AddLight(sunLight);
 
     GenericSetupExample(shader, groundShader);
 

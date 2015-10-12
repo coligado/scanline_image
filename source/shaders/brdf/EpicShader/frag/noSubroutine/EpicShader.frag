@@ -27,7 +27,7 @@ uniform PointLight pointLight;
 struct DirectionalLight {
     vec4 lightDirection;
 };
-uniform DirectionalLight directionalLight;
+uniform DirectionalLight directionalLightExample;
 
 uniform vec4 cameraPosition;
 
@@ -37,52 +37,51 @@ uniform float quadraticAttenuation;
 
 uniform int lightingType;
 
+float dotProduct(vec4 vOne, vec4 vTwo)
+{
+    return clamp(dot(vOne,vTwo), 0.f, 1.f);
+}
+
+float G1(vec4 v, vec4 N, float k)
+{
+    return dot(N, v) / (dot(N, v) * (1-k) + k);
+}
 
 vec4 pointLightSubroutine(vec4 worldPosition, vec3 worldNormal)
 {
-    //Random variables to reference
-    alpha = (material.roughness * material.roughness);
-
-    //Normalized Vector from the Vertex to the Camera
-    vec4 normalV = normalize(pointLight.pointPosition - cameraPosition);
-
     // Normal to the surface
     vec4 N = vec4(normalize(worldNormal), 0.f);
-
+    
     // Direction from the surface to the light
     vec4 L = normalize(pointLight.pointPosition - worldPosition);
-
+    
     // Direction from the surface to the eye
     vec4 E = normalize(cameraPosition - worldPosition);
-
+    
     // Direction of maximum highlights (see paper!)
     vec4 H = normalize(L + E);
-
+    
     // Epic diffuse color
     float m = material.metallic;
+    float sc = material.specular;
+    float r = material.roughness;
+    float useless = sc+r;
     vec4 cDiff = fragmentColor * (1-m);
     vec4 d = cDiff / 3.14;
-
-    // Epic specular color
-    vec4 bigDDenom = ((dot(N,H) * dot(N,H) * ((alpha * alpha) - 1) + 1);
-    vec4 bigD = (alpha * alpha) / (3.14 * (bigDDenom * bigDDenom));
-
-    vec4 bigG = GOne(L, N, k) * GOne(normalV, N, k);
-
-    float k = ((material.roughness + 1) * (material.roughness + 1)) / 8;
-
-    vec4 sC = material.specular;
-    float cSpec = mix(0.08*sC, fragmentColor, m);
-
-    twoPowerInnards = (−5.55473*(dot(normalV, H)) − 6.98316) * dot(normalV, H);
-    twoPower = pow(2, powerInnards);
-
-    bigF = cSpec + (1 - cSpec) * twoPower;
-
-    //<-- SUM -->
-    s = (bigD * bigF * bigG) / (dot(N, L) * dot(N, normalV) * 4);
-
-    return genericLight.lightColor * dot(N, L) * (d + s);
+    
+    //Random variables to reference
+    float alpha = r * r;
+    float k = ((r + 1) * (r + 1)) / 8;
+    
+    float bigDDenom = (dot(N,H) * dot(N,H) * ((alpha * alpha) - 1) + 1);
+    float bigD = (alpha * alpha) / (3.14 * (bigDDenom * bigDDenom));
+    float bigG = G1(L, N, k) * G1(E, N, k);
+    vec4 cSpec = mix(vec4(0.08 * sc), fragmentColor, m);
+    
+    vec4 F = cSpec + (1 - cSpec) * pow(2, (-5.55473 * dotProduct(E,H) - 6.98316) * dotProduct(E,H));
+    vec4 s = bigD * bigG * F / (4 * dotProduct(N, L) * dotProduct(N, E));
+    
+    return genericLight.lightColor * dotProduct(N,L) * (d + s);
 }
 
 vec4 globalLightSubroutine(vec4 worldPosition, vec3 worldNormal)
@@ -96,7 +95,7 @@ vec4 directionalLightSubroutine(vec4 worldPosition, vec3 worldNormal)
     vec4 N = vec4(normalize(worldNormal), 0.f);
     
     // Direction from the surface to the light
-    vec4 L = normalize(pointLight.pointPosition - worldPosition);
+    vec4 L = -1 * normalize(directionalLightExample.lightDirection);
     
     // Direction from the surface to the eye
     vec4 E = normalize(cameraPosition - worldPosition);
@@ -104,7 +103,27 @@ vec4 directionalLightSubroutine(vec4 worldPosition, vec3 worldNormal)
     // Direction of maximum highlights (see paper!)
     vec4 H = normalize(L + E);
     
-    return vec4(0,0,0,0);
+    // Epic diffuse color
+    float m = material.metallic;
+    float sc = material.specular;
+    float r = material.roughness;
+    float useless = sc+r;
+    vec4 cDiff = fragmentColor * (1-m);
+    vec4 d = cDiff / 3.14;
+    
+    //Random variables to reference
+    float alpha = r * r;
+    float k = ((r + 1) * (r + 1)) / 8;
+    
+    float bigDDenom = (dot(N,H) * dot(N,H) * ((alpha * alpha) - 1) + 1);
+    float bigD = (alpha * alpha) / (3.14 * (bigDDenom * bigDDenom));
+    float bigG = G1(L, N, k) * G1(E, N, k);
+    vec4 cSpec = mix(vec4(0.08 * sc), fragmentColor, m);
+    
+    vec4 F = cSpec + (1 - cSpec) * pow(2, (-5.55473 * dotProduct(E,H) - 6.98316) * dotProduct(E,H));
+    vec4 s = bigD * bigG * F / (4 * dotProduct(N, L) * dotProduct(N, E));
+    
+    return genericLight.lightColor * dotProduct(N,L) * (d + s);
 }
 
 
@@ -115,11 +134,6 @@ vec4 AttenuateLight(vec4 originalColor, vec4 worldPosition)
     return originalColor * attenuation;
 }
 
-vec4 GOne(vec4 inputVector, vec4 NVector, float k)
-{
-    vec4 returnVector = (dot(NVector, inputVector)) / (dot(NVector, inputVector) * (1-k) + k)
-}
-
 void main()
 {
     vec4 lightingColor = vec4(0);
@@ -127,6 +141,8 @@ void main()
         lightingColor = globalLightSubroutine(vertexWorldPosition, vertexWorldNormal);
     } else if (lightingType == 1) {
         lightingColor = pointLightSubroutine(vertexWorldPosition, vertexWorldNormal);
+    } else if (lightingType == 2) {
+        lightingColor = directionalLightSubroutine(vertexWorldPosition, vertexWorldNormal);
     }
     finalColor = AttenuateLight(lightingColor, vertexWorldPosition) * fragmentColor;
 }

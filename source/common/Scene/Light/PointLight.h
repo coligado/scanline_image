@@ -8,7 +8,7 @@
 class PointLight: public Light
 {
 public:
-    PointLight(std::unique_ptr<struct LightProperties> inProperties, LightType type = LightType::POINT);
+    PointLight(std::unique_ptr<struct LightProperties> inProperties, LightType type = Light::LightType::POINT);
     virtual ~PointLight();
 };
 

@@ -66,6 +66,7 @@ void EpicShader::SetupShaderLighting(const Light* light) const
             SetShaderSubroutine("inputLightSubroutine", "directionalLightSubroutine", lightingShaderStage);
 #else
             SetShaderUniform("lightingType", static_cast<int>(Light::LightType::DIRECTIONAL));
+            SetShaderUniform("directionalLightExample.lightDirection", light->GetForwardDirection());
 #endif
             break;
         

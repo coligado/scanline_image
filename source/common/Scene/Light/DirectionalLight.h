@@ -1,20 +1,21 @@
 //
-//  DirectionalLight.h
+//  directionalLight.h
 //  cs148-opengl4
 //
-//  Created by Lea Coligado on 10/11/15.
+//  Created by Lea Coligado on 10/12/15.
 //
 //
 
-#ifndef DirectionalLight_h
-#define DirectionalLight_h
+#ifndef directionalLight_h
+#define directionalLight_h
 
 #include "Light.h"
 
-class DirectionalLight: public Light{
+class directionalLight: public Light {
 public:
-    DirectionalLight(std::unique_ptr<struct LightProperties> inProperties, LightType type = Light::LightType::POINT);
-    virtual ~PointLight();
+    directionalLight(std::unique_ptr<struct LightProperties> inProperties, LightType type = Light::LightType::DIRECTIONAL):
+    Light::Light(std::move(inProperties), type) {}
+    
 };
 
-#endif /* DirectionalLight_h */
+#endif /* directionalLight_h */
