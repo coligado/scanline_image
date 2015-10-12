@@ -7,10 +7,10 @@ in vec3 vertexWorldNormal;
 out vec4 finalColor;
 
 uniform InputMaterial {
-    vec4 matDiffuse;
-    vec4 matSpecular;
-    float matShininess;
-    vec4 matAmbient;
+        vec4 matDiffuse;
+        vec4 matSpecular;
+        float matShininess;
+        vec4 matAmbient;
 } material;
 
 struct LightProperties {
@@ -40,13 +40,13 @@ subroutine(lightingSubroutine) vec4 pointLightSubroutine(vec4 worldPosition, vec
     
     // Direction from the surface to the light
     vec4 L = normalize(pointLight.pointPosition - worldPosition);
-
+    
     // Direction from the surface to the eye
     vec4 E = normalize(cameraPosition - worldPosition);
-
+    
     // Direction of maximum highlights (see paper!)
     vec4 H = normalize(L + E);
-
+    
     // Amount of diffuse reflection
     float d = max(0, dot(N, L));
     vec4 diffuseColor = d * genericLight.diffuseColor * material.matDiffuse;
@@ -54,13 +54,14 @@ subroutine(lightingSubroutine) vec4 pointLightSubroutine(vec4 worldPosition, vec
     // Amount of specular reflection
     float s = pow(max(0, dot(N, H)), material.matShininess);
     vec4 specularColor = s * genericLight.specularColor * material.matSpecular;
-
+    
     return diffuseColor + specularColor;
 }
 
 subroutine(lightingSubroutine) vec4 globalLightSubroutine(vec4 worldPosition, vec3 worldNormal)
 {
-    return material.matAmbient;
+    //    return material.matAmbient;
+    return vec4(0,0,0,0);
 }
 
 vec4 AttenuateLight(vec4 originalColor, vec4 worldPosition)

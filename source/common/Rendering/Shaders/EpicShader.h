@@ -1,27 +1,27 @@
 #pragma once
 
-#ifndef __BLINN_PHONG_SHADER__
-#define __BLINN_PHONG_SHADER__
+#ifndef __EPIC_SHADER__
+#define __EPIC_SHADER__
 
 #include "common/Rendering/Shaders/ShaderProgram.h"
 #include <functional>
 
-/*! \brief The CPU Interface to the BlinnPhong shader (either or: vert or frag version or the textured version).
+/*! \brief The CPU Interface to the Epic shader (either or: vert or frag version or the textured version).
  *
- *  Note that this shader class can also probably be used for any minor variations on the Blinn-Phong shader.
+ *  Note that this shader class can also probably be used for any minor variations on the Epic shader.
  */
-class BlinnPhongShader: public ShaderProgram
+class EpicShader: public ShaderProgram
 {
 public:
-    /*! \brief Construcs the Blinn-Phong shader object.
+    /*! \brief Construcs the Epic shader object.
      *  \param inputShaders Look at ShaderProgram::ShaderProgram() for details.
      *  \param lightingStage If subroutines are not disabled, this is the shader object (vertex or fragment) that contains the subroutine uniform variable.
      */
-    BlinnPhongShader(const std::unordered_map<GLenum, std::string>& inputShaders, GLenum lightingStage);
+    EpicShader(const std::unordered_map<GLenum, std::string>& inputShaders, GLenum lightingStage);
 
     /*! \brief Deconstructor.
      */
-    virtual ~BlinnPhongShader();
+    virtual ~EpicShader();
 
     /*! \copydoc ShaderProgram::SetupShaderLighting(const class Light* light) const;
      *  
@@ -86,7 +86,7 @@ public:
 
     /*! \copydoc ShaderProgram::CreateLightProperties() 
      */
-    static std::unique_ptr<struct BlinnPhongLightProperties> CreateLightProperties();
+    static std::unique_ptr<struct EpicLightProperties> CreateLightProperties();
 protected:
     // Material Parameters
     virtual void UpdateMaterialBlock() const;

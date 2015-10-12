@@ -7,10 +7,13 @@ in vec3 vertexWorldNormal;
 out vec4 finalColor;
 
 uniform InputMaterial {
-    vec4 matDiffuse;
-    vec4 matSpecular;
-    float matShininess;
-    vec4 matAmbient;
+//    vec4 matDiffuse;
+//    vec4 matSpecular;
+//    float matShininess;
+//    vec4 matAmbient;
+    float metallic;
+    float roughness;
+    float specular;
 } material;
 
 struct LightProperties {
