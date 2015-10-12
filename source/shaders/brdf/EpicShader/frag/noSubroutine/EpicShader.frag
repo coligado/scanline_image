@@ -37,15 +37,18 @@ uniform float quadraticAttenuation;
 
 uniform int lightingType;
 
+
 float dotProduct(vec4 vOne, vec4 vTwo)
 {
     return clamp(dot(vOne,vTwo), 0.f, 1.f);
 }
 
+
 float G1(vec4 v, vec4 N, float k)
 {
     return dot(N, v) / (dot(N, v) * (1-k) + k);
 }
+
 
 vec4 pointLightSubroutine(vec4 worldPosition, vec3 worldNormal)
 {
@@ -84,10 +87,12 @@ vec4 pointLightSubroutine(vec4 worldPosition, vec3 worldNormal)
     return genericLight.lightColor * dotProduct(N,L) * (d + s);
 }
 
+
 vec4 globalLightSubroutine(vec4 worldPosition, vec3 worldNormal)
 {
     return vec4(0,0,0,0);
 }
+
 
 vec4 directionalLightSubroutine(vec4 worldPosition, vec3 worldNormal)
 {
@@ -126,6 +131,7 @@ vec4 directionalLightSubroutine(vec4 worldPosition, vec3 worldNormal)
     return genericLight.lightColor * dotProduct(N,L) * (d + s);
 }
 
+
 vec4 hemisphereLightSubroutine(vec4 worldPosition, vec3 worldNormal)
 {
     // Normal to the surface
@@ -142,18 +148,21 @@ vec4 hemisphereLightSubroutine(vec4 worldPosition, vec3 worldNormal)
     vec4 cDiff = fragmentColor * (1-m);
     vec4 d = cDiff / 3.14;
     
-    // TODO: is the clamp portion correct?
-    vec4 cLight = mix(genericLight.secondaryColor, genericLight.lightColor, clamp(N * vec4(0, 1.f, 0, 0) * 0.5 + 0.5, 0, 1));
+    vec4 cLight = mix(genericLight.secondaryColor, genericLight.lightColor, clamp(dot(N,(vec4(0,1.f,0,0)*0.5f))+0.5f,0,1.f));
     
     return cLight * dotProduct(N,L) * d;
 }
 
+
 vec4 AttenuateLight(vec4 originalColor, vec4 worldPosition)
 {
     float lightDistance = length(pointLight.pointPosition - worldPosition);
-    float attenuation = 1.0 / (constantAttenuation + lightDistance * linearAttenuation + lightDistance * lightDistance * quadraticAttenuation);
+    float lRadius = 30.f;
+    float numerator = pow(clamp(1.f-pow(lightDistance/lRadius,4),0,1),2);
+    float attenuation = numerator / (constantAttenuation + lightDistance * linearAttenuation + lightDistance * lightDistance * quadraticAttenuation);
     return originalColor * attenuation;
 }
+
 
 void main()
 {
@@ -162,8 +171,12 @@ void main()
         lightingColor = globalLightSubroutine(vertexWorldPosition, vertexWorldNormal);
     } else if (lightingType == 1) {
         lightingColor = pointLightSubroutine(vertexWorldPosition, vertexWorldNormal);
+        // Only attenuate point lights
+        lightingColor = AttenuateLight(lightingColor, vertexWorldPosition);
     } else if (lightingType == 2) {
         lightingColor = directionalLightSubroutine(vertexWorldPosition, vertexWorldNormal);
+    } else if (lightingType == 3) {
+        lightingColor = hemisphereLightSubroutine(vertexWorldPosition, vertexWorldNormal);
     }
-    finalColor = AttenuateLight(lightingColor, vertexWorldPosition) * fragmentColor;
+    finalColor = lightingColor;
 }

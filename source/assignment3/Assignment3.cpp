@@ -115,42 +115,55 @@ void Assignment3::SetupExample1()
     scene->ClearScene();
 #ifndef DISABLE_OPENGL_SUBROUTINES
     std::unordered_map<GLenum, std::string> shaderSpec = {
-        { GL_VERTEX_SHADER, "brdf/EpicShader/frag/noSubroutine/EpicShader.vert" },
-        { GL_FRAGMENT_SHADER, "brdf/EpicShader/frag/noSubroutine/EpicShader.frag" }
+        { GL_VERTEX_SHADER, "brdf/blinnphong/frag/blinnphong.vert" },
+        { GL_FRAGMENT_SHADER, "brdf/blinnphong/frag/blinnphong.frag" }
+    };
+    
+    std::unordered_map<GLenum, std::string> EpicShaderSpec = {
+        { GL_VERTEX_SHADER, "brdf/blinnphong/frag/blinnphong.vert" },
+        { GL_FRAGMENT_SHADER, "brdf/blinnphong/frag/blinnphong.frag" }
     };
 #else
     std::unordered_map<GLenum, std::string> shaderSpec = {
-        { GL_VERTEX_SHADER, "brdf/EpicShader/frag/noSubroutine/EpicShader.vert" },
-        { GL_FRAGMENT_SHADER, "brdf/EpicShader/frag/noSubroutine/EpicShader.frag"}
+        { GL_VERTEX_SHADER, "brdf/blinnphong/frag/noSubroutine/blinnphong.vert" },
+        { GL_FRAGMENT_SHADER, "brdf/blinnphong/frag/noSubroutine/blinnphong.frag"}
+    };
+    
+    std::unordered_map<GLenum, std::string> EpicShaderSpec = {
+        { GL_VERTEX_SHADER, "brdf/blinnphong/frag/blinnphong.vert" },
+        { GL_FRAGMENT_SHADER, "brdf/blinnphong/frag/blinnphong.frag" }
     };
 #endif
+    std::shared_ptr<BlinnPhongShader> shader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
+    shader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
+    shader->SetSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f), 40.f);
     
-    std::shared_ptr<EpicShader> shader = std::make_shared<EpicShader>(shaderSpec, GL_FRAGMENT_SHADER);
-    shader->SetMetallic(0.6f);
-    shader->SetSpecular(0.4f);
-    shader->SetRoughness(0.5f);
+    std::shared_ptr<BlinnPhongShader> groundShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
+    shader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
     
-    std::shared_ptr<EpicShader> groundShader = std::make_shared<EpicShader>(shaderSpec, GL_FRAGMENT_SHADER);
-    groundShader->SetMetallic(0.f);
-    groundShader->SetSpecular(0.f);
-    groundShader->SetRoughness(0.f);
-
-    std::unique_ptr<EpicLightProperties> lightProperties = EpicShader::CreateLightProperties();
-    lightProperties->lightColor = glm::vec4(2.f, 2.f, 2.f, 1.f);
+    //Copied version (this is the one that we fuck with)
+    std::shared_ptr<BlinnPhongShader> EpicShader = std::make_shared<BlinnPhongShader>(EpicShaderSpec, GL_FRAGMENT_SHADER);
+    EpicShader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
+    EpicShader->SetSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f), 40.f);
     
-    sunLight = std::make_shared<DirectionalLight>(std::move(lightProperties));
-    sunLight->Rotate(glm::vec3(SceneObject::GetWorldRight()), PI / -4.f);
-    sunLight->Rotate(glm::vec3(SceneObject::GetWorldUp()), PI / 4.f);
-    scene->AddLight(sunLight);
+    //Copied version (this is the one that we fuck with)
+    std::shared_ptr<BlinnPhongShader> EpicGroundShader = std::make_shared<BlinnPhongShader>(EpicShaderSpec, GL_FRAGMENT_SHADER);
+    EpicGroundShader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
     
-//    lightProperties = EpicShader::CreateLightProperties();
-//    lightProperties->lightColor = glm::vec4(glm::vec3(0.529f, 0.808f, 0.98f) * 3.f, 1.f);
-//    lightProperties->secondaryColor = glm::vec4(glm::vec3(0.471f, 0.282f, 0.f) * 3.f, 1.f);
-//    hemisphereLight = std::make_shared<HemisphereLight>(std::move(lightProperties));
-//    scene->AddLight(hemisphereLight);
+    std::unique_ptr<BlinnPhongLightProperties> lightProperties = BlinnPhongShader::CreateLightProperties();
+    lightProperties->diffuseColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
+    lightProperties->specularColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
+    
+    //Copied version (this is the one that we fuck with)
+    std::unique_ptr<BlinnPhongLightProperties> EpicLightProperties = BlinnPhongShader::CreateLightProperties();
+    EpicLightProperties->diffuseColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
+    EpicLightProperties->specularColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
+    
+    pointLight = std::make_shared<Light>(std::move(lightProperties));
+    pointLight->SetPosition(glm::vec3(10.f, 10.f, 10.f));
+    scene->AddLight(pointLight);
     
     GenericSetupExample(shader, groundShader);
-
 }
 
 void Assignment3::SetupExample2() {
@@ -171,12 +184,19 @@ void Assignment3::SetupExample2() {
 
     std::unique_ptr<EpicLightProperties> lightProperties = EpicShader::CreateLightProperties();
     lightProperties->lightColor = glm::vec4(2.f, 2.f, 2.f, 1.f);
+    
+    // Point
+//    pointLight = std::make_shared<Light>(std::move(lightProperties));
+//    pointLight->SetPosition(glm::vec3(10.f, 10.f, 10.f));
+//    scene->AddLight(pointLight);
+    
+    // Directional
+//    sunLight = std::make_shared<DirectionalLight>(std::move(lightProperties));
+//    sunLight->Rotate(glm::vec3(SceneObject::GetWorldRight()), PI / -4.f);
+//    sunLight->Rotate(glm::vec3(SceneObject::GetWorldUp()), PI / 4.f);
+//    scene->AddLight(sunLight);
 
-    sunLight = std::make_shared<DirectionalLight>(std::move(lightProperties));
-    sunLight->Rotate(glm::vec3(SceneObject::GetWorldRight()), PI / -4.f);
-    sunLight->Rotate(glm::vec3(SceneObject::GetWorldUp()), PI / 4.f);
-    scene->AddLight(sunLight);
-
+    // Hemisphere
     lightProperties = EpicShader::CreateLightProperties();
     lightProperties->lightColor = glm::vec4(glm::vec3(0.529f, 0.808f, 0.98f) * 3.f, 1.f);
     lightProperties->secondaryColor = glm::vec4(glm::vec3(0.471f, 0.282f, 0.f) * 3.f, 1.f);
