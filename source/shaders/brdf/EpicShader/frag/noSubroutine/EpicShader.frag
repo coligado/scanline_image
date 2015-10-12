@@ -71,11 +71,11 @@ vec4 pointLightSubroutine(vec4 worldPosition, vec3 worldNormal)
 
     float k = ((material.roughness + 1) * (material.roughness + 1)) / 8;
 
-    vec4 sC = material.specular
+    vec4 sC = material.specular;
     float cSpec = mix(0.08*sC, fragmentColor, m);
 
     twoPowerInnards = (−5.55473*(dot(normalV, H)) − 6.98316) * dot(normalV, H);
-    twoPower = Math.pow(2, twoPowerInnards);
+    twoPower = pow(2, powerInnards);
 
     bigF = cSpec + (1 - cSpec) * twoPower;
 
