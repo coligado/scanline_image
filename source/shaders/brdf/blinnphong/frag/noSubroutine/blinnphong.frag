@@ -55,7 +55,8 @@ vec4 pointLightSubroutine(vec4 worldPosition, vec3 worldNormal)
     float s = pow(max(0, dot(N, H)), material.matShininess);
     vec4 specularColor = s * genericLight.specularColor * material.matSpecular;
 
-    return diffuseColor + specularColor;
+//    return diffuseColor + specularColor;
+    return vec4(0,0,0,0);
 }
 
 vec4 globalLightSubroutine(vec4 worldPosition, vec3 worldNormal)

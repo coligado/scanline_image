@@ -7,7 +7,7 @@
 //#include "instructor/Light/EpicLightingProperties.h"
 //#include "instructor/Light/DirectionalLight.h"
 //#include "instructor/Light/HemisphereLight.h"
-//#include "instructor/Shaders/EpicShader.h"
+#include "common/Rendering/Shaders/EpicShader.h"
 #include <cmath>
 
 Assignment3::Assignment3(std::shared_ptr<class Scene> inputScene, std::shared_ptr<class Camera> inputCamera):
@@ -120,8 +120,8 @@ void Assignment3::SetupExample1()
     };
 #else
     std::unordered_map<GLenum, std::string> shaderSpec = {
-        { GL_VERTEX_SHADER, "brdf/blinnphong/frag/noSubroutine/blinnphong.vert" },
-        { GL_FRAGMENT_SHADER, "brdf/blinnphong/frag/noSubroutine/blinnphong.frag"}
+        { GL_VERTEX_SHADER, "brdf/EpicShader/frag/noSubroutine/EpicShader.vert" },
+        { GL_FRAGMENT_SHADER, "brdf/EpicShader/frag/noSubroutine/EpicShader.frag"}
     };
 #endif
     std::shared_ptr<BlinnPhongShader> shader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
@@ -146,14 +146,14 @@ void Assignment3::SetupExample1()
 void Assignment3::SetupExample2() {
 //    scene->ClearScene();
 //    std::unordered_map<GLenum, std::string> shaderSpec = {
-//        { GL_VERTEX_SHADER, "instructor/epic/epic.vert" },
-//        { GL_FRAGMENT_SHADER, "instructor/epic/epic.frag" }
+//        { GL_VERTEX_SHADER, "brdf/blinnphong/frag/noSubroutine/EpicShader.vert" },
+//        { GL_FRAGMENT_SHADER, "brdf/blinnphong/frag/noSubroutine/EpicShader.frag" }
 //    };
 //    std::shared_ptr<EpicShader> shader = std::make_shared<EpicShader>(shaderSpec, GL_FRAGMENT_SHADER);
 //    shader->SetMetallic(0.6f);
 //    shader->SetSpecular(0.4f);
 //    shader->SetRoughness(0.5f);
-//
+
 //    std::shared_ptr<EpicShader> groundShader = std::make_shared<EpicShader>(shaderSpec, GL_FRAGMENT_SHADER);
 //    groundShader->SetMetallic(0.f);
 //    groundShader->SetSpecular(0.f);
