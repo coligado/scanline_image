@@ -13,9 +13,10 @@ uniform InputMaterial {
 } material;
 
 struct LightProperties {
-    vec4 diffuseColor;
-    vec4 specularColor;
+    vec4 lightColor;
+    vec4 secondaryColor;
 };
+
 uniform LightProperties genericLight;
 
 struct PointLight {
@@ -46,19 +47,12 @@ vec4 pointLightSubroutine(vec4 worldPosition, vec3 worldNormal)
     // Direction of maximum highlights (see paper!)
     vec4 H = normalize(L + E);
     
-    // Amount of diffuse reflection
-//    float d = max(0, dot(N, L));
-//    vec4 diffuseColor = d * genericLight.diffuseColor * material.matDiffuse;
-    
-    // Amount of specular reflection
-//    float s = pow(max(0, dot(N, H)), material.matShininess);
-//    vec4 specularColor = s * genericLight.specularColor * material.matSpecular;
-    
     // Epic diffuse color
-    vec4 epicD = genericLight.diffuseColor / 3.14;
+//    vec4 diffuseColor = (1 − material.metallic) * fragmentColor;
+//    float epicD = diffuseColor / 3.14;
     
-    //    return diffuseColor + specularColor;
-    return epicD;
+    float twerk = material.metallic + material.roughness + material.specular;
+    return vec4(0,0,0,0);
 }
 
 vec4 globalLightSubroutine(vec4 worldPosition, vec3 worldNormal)
