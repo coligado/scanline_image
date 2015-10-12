@@ -142,22 +142,21 @@ std::unique_ptr<EpicLightProperties> EpicShader::CreateLightProperties()
 {
     return make_unique<EpicLightProperties>();
 }
-void EpicShader::SetDiffuse(glm::vec4 inDiffuse) 
-{ 
-//    diffuse = inDiffuse; 
+void EpicShader::SetMetallic(float inMetallic)
+{
+    metallic = inMetallic;
     UpdateMaterialBlock();
 }
 
-void EpicShader::SetSpecular(glm::vec4 inSpecular, float inShininess) 
-{ 
-//    specular = inSpecular; 
-//    shininess = inShininess;
+void EpicShader::SetRoughness(float inRoughness)
+{
+    roughness = inRoughness;
     UpdateMaterialBlock();
 }
 
-void EpicShader::SetAmbient(glm::vec4 inAmbient) 
+void EpicShader::SetSpecular(float inSpecular)
 { 
-//    ambient = inAmbient; 
+    specular = inSpecular;
     UpdateMaterialBlock();
 }
 
