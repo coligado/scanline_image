@@ -47,7 +47,7 @@ public:
      *
      *  Immediately calls UpdateMaterialBlock() to store the new data into the OpenGL buffer.
      */
-    virtual void SetDiffuse(glm::vec4 inDiffuse);
+    virtual void SetMetallic(float inMetallic);
 
     /*! \brief Sets the specular color of the material.
      *  \param inSpecular The desired specular color.
@@ -56,14 +56,14 @@ public:
      *  Immediately calls UpdateMaterialBlock() to store the new data into the OpenGL buffer. For more information
      *  about the shininess parameters, refer to the Wikipedia page on the <a href="https://en.wikipedia.org/wiki/Phong_reflection_model">Phong reflection model</a>.
      */
-    virtual void SetSpecular(glm::vec4 inSpecular, float inShininess);
+    virtual void SetRoughness(float inRoughness);
 
     /*! \brief Sets the ambient color of the material.
      *  \param inAmbient The desired ambient color.
      *
      *  Immediately calls UpdateMaterialBlock() to store the new data into the OpenGL buffer.
      */
-    virtual void SetAmbient(glm::vec4 inAmbient);
+    virtual void SetSpecular(float inSpecular);
 
 
     /*! \brief Corresponds to the texture unit that we want to bind the texture to.
