@@ -90,18 +90,21 @@ public:
 protected:
     // Material Parameters
     virtual void UpdateMaterialBlock() const;
-    glm::vec4 diffuse;
-    glm::vec4 specular;
-    float shininess;
-    glm::vec4 ambient;
+    float metallic;
+    float roughness;
+    float specular;
+//    glm::vec4 diffuse;
+//    glm::vec4 specular;
+//    float shininess;
+//    glm::vec4 ambient;
 
     // Material Bindings into the Shader
-    static std::array<const char*, 4> MATERIAL_PROPERTY_NAMES;
+    static std::array<const char*, 3> MATERIAL_PROPERTY_NAMES;
     static const int MATERIAL_BINDING_POINT;
     GLuint materialBlockLocation;
     GLint materialBlockSize;
-    std::array<GLuint, 4> materialIndices;
-    std::array<GLint, 4> materialOffsets;
+    std::array<GLuint, 3> materialIndices;
+    std::array<GLint, 3> materialOffsets;
     GLuint materialBuffer;
     std::vector<GLubyte> materialStorage;
 
