@@ -124,7 +124,7 @@ void Assignment3::SetupExample1()
         { GL_FRAGMENT_SHADER, "brdf/EpicShader/frag/noSubroutine/EpicShader.frag"}
     };
 #endif
-    std::shared_ptr<BlinnPhongShader> shader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
+    std::shared_ptr<EpicShader> shader = std::make_shared<EpicShader>(shaderSpec, GL_FRAGMENT_SHADER);
     shader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
     shader->SetSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f), 40.f);
 

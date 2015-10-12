@@ -13,7 +13,7 @@ std::array<const char*, 3> EpicShader::MATERIAL_PROPERTY_NAMES = {
 const int EpicShader::MATERIAL_BINDING_POINT = 0;
 
 EpicShader::EpicShader(const std::unordered_map<GLenum, std::string>& inputShaders, GLenum lightingStage):
-    ShaderProgram(inputShaders), metallic(1.f)), roughness(1.f), specular(1.f), materialBlockLocation(0), materialBlockSize(0), materialBuffer(0),
+    ShaderProgram(inputShaders), metallic(1.f), roughness(1.f), specular(1.f), materialBlockLocation(0), materialBlockSize(0), materialBuffer(0),
     lightingShaderStage(lightingStage)
 {
     if (!shaderProgram) {
@@ -144,20 +144,20 @@ std::unique_ptr<EpicLightProperties> EpicShader::CreateLightProperties()
 }
 void EpicShader::SetDiffuse(glm::vec4 inDiffuse) 
 { 
-    diffuse = inDiffuse; 
+//    diffuse = inDiffuse; 
     UpdateMaterialBlock();
 }
 
 void EpicShader::SetSpecular(glm::vec4 inSpecular, float inShininess) 
 { 
-    specular = inSpecular; 
-    shininess = inShininess;
+//    specular = inSpecular; 
+//    shininess = inShininess;
     UpdateMaterialBlock();
 }
 
 void EpicShader::SetAmbient(glm::vec4 inAmbient) 
 { 
-    ambient = inAmbient; 
+//    ambient = inAmbient; 
     UpdateMaterialBlock();
 }
 
