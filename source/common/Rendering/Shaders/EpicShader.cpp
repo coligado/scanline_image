@@ -1,19 +1,18 @@
-#include "common/Rendering/Shaders/BlinnPhongShader.h"
+#include "common/Rendering/Shaders/EpicShader.h"
 #include "common/Rendering/Textures/Texture.h"
 #include "common/Scene/Light/Light.h"
-#include "common/Scene/Light/Properties/BlinnPhong/BlinnPhongLightProperties.h"
+#include "common/Scene/Light/Properties/Epic/EpicLightProperties.h"
 #include "common/Scene/Camera/Camera.h"
 #include "common/Utility/Texture/TextureLoader.h"
 
-std::array<const char*, 4> BlinnPhongShader::MATERIAL_PROPERTY_NAMES = {
-    "InputMaterial.matDiffuse", 
-    "InputMaterial.matSpecular", 
-    "InputMaterial.matShininess", 
-    "InputMaterial.matAmbient"
+std::array<const char*, 3> EpicShader::MATERIAL_PROPERTY_NAMES = {
+    "InputMaterial.metallic",
+    "InputMaterial.roughness",
+    "InputMaterial.specular",
 };
-const int BlinnPhongShader::MATERIAL_BINDING_POINT = 0;
+const int EpicShader::MATERIAL_BINDING_POINT = 0;
 
-BlinnPhongShader::BlinnPhongShader(const std::unordered_map<GLenum, std::string>& inputShaders, GLenum lightingStage):
+EpicShader::EpicShader(const std::unordered_map<GLenum, std::string>& inputShaders, GLenum lightingStage):
     ShaderProgram(inputShaders), diffuse(glm::vec3(0.f), 1.f), specular(glm::vec3(0.f), 1.f), shininess(1.f), ambient(glm::vec3(0.1f), 1.f), 
     materialBlockLocation(0), materialBlockSize(0), materialBuffer(0),
     lightingShaderStage(lightingStage)
@@ -22,7 +21,7 @@ BlinnPhongShader::BlinnPhongShader(const std::unordered_map<GLenum, std::string>
         return;
     }
 
-    SetupUniformBlock<4>("InputMaterial", MATERIAL_PROPERTY_NAMES, materialIndices, materialOffsets, materialStorage, materialBlockLocation, materialBlockSize, materialBuffer);
+    SetupUniformBlock<3>("InputMaterial", MATERIAL_PROPERTY_NAMES, materialIndices, materialOffsets, materialStorage, materialBlockLocation, materialBlockSize, materialBuffer);
     UpdateMaterialBlock();
 
 #ifdef DISABLE_OPENGL_SUBROUTINES
@@ -36,12 +35,12 @@ BlinnPhongShader::BlinnPhongShader(const std::unordered_map<GLenum, std::string>
     }
 }
 
-BlinnPhongShader::~BlinnPhongShader()
+EpicShader::~EpicShader()
 {
     OGL_CALL(glDeleteBuffers(1, &materialBuffer));
 }
 
-void BlinnPhongShader::SetupShaderLighting(const Light* light) const
+void EpicShader::SetupShaderLighting(const Light* light) const
 {
     if (!light) {
 #ifndef DISABLE_OPENGL_SUBROUTINES
@@ -70,7 +69,7 @@ void BlinnPhongShader::SetupShaderLighting(const Light* light) const
         }
 
         // Get the light's properties and pass it into the shader.
-        const BlinnPhongLightProperties* lightProperty = static_cast<const BlinnPhongLightProperties*>(light->GetPropertiesRaw());
+        const EpicLightProperties* lightProperty = static_cast<const EpicLightProperties*>(light->GetPropertiesRaw());
         SetShaderUniform("genericLight.diffuseColor", lightProperty->diffuseColor);
         SetShaderUniform("genericLight.specularColor", lightProperty->specularColor);
         light->SetupShaderUniforms(this);
@@ -78,7 +77,7 @@ void BlinnPhongShader::SetupShaderLighting(const Light* light) const
     UpdateAttenuationUniforms(light);
 }
 
-void BlinnPhongShader::UpdateMaterialBlock() const
+void EpicShader::UpdateMaterialBlock() const
 {
     StartUseShader();
 
@@ -102,7 +101,7 @@ void BlinnPhongShader::UpdateMaterialBlock() const
     StopUseShader();
 }
 
-void BlinnPhongShader::UpdateAttenuationUniforms(const Light* light) const
+void EpicShader::UpdateAttenuationUniforms(const Light* light) const
 {
     float constant = 1.f, linear = 0.f, quadratic = 0.f;
     if (light) {
@@ -114,7 +113,7 @@ void BlinnPhongShader::UpdateAttenuationUniforms(const Light* light) const
     SetShaderUniform("quadraticAttenuation", quadratic);
 }
 
-void BlinnPhongShader::SetupShaderMaterials() const
+void EpicShader::SetupShaderMaterials() const
 {
     // Need to make sure the material buffer is bound.
     OGL_CALL(glBindBufferBase(GL_UNIFORM_BUFFER, MATERIAL_BINDING_POINT, materialBuffer));
@@ -136,35 +135,35 @@ void BlinnPhongShader::SetupShaderMaterials() const
 
 }
 
-void BlinnPhongShader::SetupShaderCamera(const class Camera* camera) const
+void EpicShader::SetupShaderCamera(const class Camera* camera) const
 {
     SetShaderUniform("cameraPosition", camera->GetPosition());
 }
 
-std::unique_ptr<BlinnPhongLightProperties> BlinnPhongShader::CreateLightProperties()
+std::unique_ptr<EpicLightProperties> EpicShader::CreateLightProperties()
 {
-    return make_unique<BlinnPhongLightProperties>();
+    return make_unique<EpicLightProperties>();
 }
-void BlinnPhongShader::SetDiffuse(glm::vec4 inDiffuse) 
+void EpicShader::SetDiffuse(glm::vec4 inDiffuse) 
 { 
     diffuse = inDiffuse; 
     UpdateMaterialBlock();
 }
 
-void BlinnPhongShader::SetSpecular(glm::vec4 inSpecular, float inShininess) 
+void EpicShader::SetSpecular(glm::vec4 inSpecular, float inShininess) 
 { 
     specular = inSpecular; 
     shininess = inShininess;
     UpdateMaterialBlock();
 }
 
-void BlinnPhongShader::SetAmbient(glm::vec4 inAmbient) 
+void EpicShader::SetAmbient(glm::vec4 inAmbient) 
 { 
     ambient = inAmbient; 
     UpdateMaterialBlock();
 }
 
-void BlinnPhongShader::SetTexture(TextureSlots::Type slot, std::shared_ptr<class Texture> inputTexture)
+void EpicShader::SetTexture(TextureSlots::Type slot, std::shared_ptr<class Texture> inputTexture)
 {
     textureSlotMapping[slot] = std::move(inputTexture);
 }
