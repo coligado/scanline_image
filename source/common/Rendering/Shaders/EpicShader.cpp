@@ -13,8 +13,7 @@ std::array<const char*, 3> EpicShader::MATERIAL_PROPERTY_NAMES = {
 const int EpicShader::MATERIAL_BINDING_POINT = 0;
 
 EpicShader::EpicShader(const std::unordered_map<GLenum, std::string>& inputShaders, GLenum lightingStage):
-    ShaderProgram(inputShaders), diffuse(glm::vec3(0.f), 1.f), specular(glm::vec3(0.f), 1.f), shininess(1.f), ambient(glm::vec3(0.1f), 1.f), 
-    materialBlockLocation(0), materialBlockSize(0), materialBuffer(0),
+    ShaderProgram(inputShaders), metallic(1.f)), roughness(1.f), specular(1.f), materialBlockLocation(0), materialBlockSize(0), materialBuffer(0),
     lightingShaderStage(lightingStage)
 {
     if (!shaderProgram) {
@@ -81,10 +80,9 @@ void EpicShader::UpdateMaterialBlock() const
 {
     StartUseShader();
 
-    memcpy((void*)(materialStorage.data() + materialOffsets[0]), glm::value_ptr(diffuse), sizeof(glm::vec4));
-    memcpy((void*)(materialStorage.data() + materialOffsets[1]), glm::value_ptr(specular), sizeof(glm::vec4));
-    memcpy((void*)(materialStorage.data() + materialOffsets[2]), &shininess, sizeof(float));
-    memcpy((void*)(materialStorage.data() + materialOffsets[3]), glm::value_ptr(ambient), sizeof(glm::vec4));
+    memcpy((void*)(materialStorage.data() + materialOffsets[0]), &metallic, sizeof(float));
+    memcpy((void*)(materialStorage.data() + materialOffsets[1]), &roughness, sizeof(float));
+    memcpy((void*)(materialStorage.data() + materialOffsets[2]), &specular, sizeof(float));
 
     if (materialBuffer && materialBlockLocation != GL_INVALID_INDEX) {
         OGL_CALL(glBindBuffer(GL_UNIFORM_BUFFER, materialBuffer));
