@@ -4,7 +4,7 @@
 #include "common/Utility/Mesh/Loading/MeshLoader.h"
 #include "common/Utility/Texture/TextureLoader.h"
 
-//#include "instructor/Light/EpicLightingProperties.h"
+#include "common/Scene/Light/Properties/Epic/EpicLightProperties.h"
 //#include "instructor/Light/DirectionalLight.h"
 //#include "instructor/Light/HemisphereLight.h"
 #include "common/Rendering/Shaders/EpicShader.h"
@@ -115,8 +115,8 @@ void Assignment3::SetupExample1()
     scene->ClearScene();
 #ifndef DISABLE_OPENGL_SUBROUTINES
     std::unordered_map<GLenum, std::string> shaderSpec = {
-        { GL_VERTEX_SHADER, "brdf/blinnphong/frag/blinnphong.vert" },
-        { GL_FRAGMENT_SHADER, "brdf/blinnphong/frag/blinnphong.frag" }
+        { GL_VERTEX_SHADER, "brdf/EpicShader/frag/noSubroutine/EpicShader.vert" },
+        { GL_FRAGMENT_SHADER, "brdf/EpicShader/frag/noSubroutine/EpicShader.frag" }
     };
 #else
     std::unordered_map<GLenum, std::string> shaderSpec = {
@@ -126,15 +126,15 @@ void Assignment3::SetupExample1()
 #endif
     
     std::shared_ptr<EpicShader> shader = std::make_shared<EpicShader>(shaderSpec, GL_FRAGMENT_SHADER);
-    shader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
-    shader->SetSpecular(glm::vec4(1.f, 1.f, 1.f, 1.f), 40.f);
-
+    shader->SetMetallic(0.6f);
+    shader->SetSpecular(0.4f);
+    shader->SetRoughness(0.5f);
+    
     std::shared_ptr<EpicShader> groundShader = std::make_shared<EpicShader>(shaderSpec, GL_FRAGMENT_SHADER);
-    shader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
 
-    std::unique_ptr<BlinnPhongLightProperties> lightProperties = BlinnPhongShader::CreateLightProperties();
-    lightProperties->diffuseColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
-    lightProperties->specularColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
+    std::unique_ptr<EpicLightProperties> lightProperties = EpicShader::CreateLightProperties();
+    lightProperties->lightColor = glm::vec4(2.f, 2.f, 2.f, 1.f);
+//    lightProperties->specularColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
 
     pointLight = std::make_shared<Light>(std::move(lightProperties));
     pointLight->SetPosition(glm::vec3(10.f, 10.f, 10.f));

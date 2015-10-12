@@ -48,11 +48,11 @@ vec4 pointLightSubroutine(vec4 worldPosition, vec3 worldNormal)
     vec4 H = normalize(L + E);
     
     // Epic diffuse color
-//    vec4 diffuseColor = (1 − material.metallic) * fragmentColor;
-//    float epicD = diffuseColor / 3.14;
+    float m = material.metallic;
+    vec4 cDiff = fragmentColor * (1-m);
+    vec4 d = cDiff / 3.14;
     
-    float twerk = material.metallic + material.roughness + material.specular;
-    return vec4(0,0,0,0);
+    return genericLight.lightColor * dot(N, L) * d;
 }
 
 vec4 globalLightSubroutine(vec4 worldPosition, vec3 worldNormal)

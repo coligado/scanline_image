@@ -156,4 +156,5 @@ dependencies: \
   /Users/leacoligado/Downloads/cs148opengl4/source/common/Utility/Mesh/Simple/PrimitiveCreator.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/common/Utility/Mesh/Loading/MeshLoader.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/common/Utility/Texture/TextureLoader.h \
+  /Users/leacoligado/Downloads/cs148opengl4/source/common/Scene/Light/Properties/Epic/EpicLightProperties.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/common/Rendering/Shaders/EpicShader.h
