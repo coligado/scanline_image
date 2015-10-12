@@ -50,6 +50,8 @@ void EpicShader::SetupShaderLighting(const Light* light) const
     } else {
         // Select proper lighting subroutine based on the light's type.
         switch(light->GetLightType()) {
+        
+        // Point
         case Light::LightType::POINT:
 #ifndef DISABLE_OPENGL_SUBROUTINES
             SetShaderSubroutine("inputLightSubroutine", "pointLightSubroutine", lightingShaderStage);
@@ -57,6 +59,17 @@ void EpicShader::SetupShaderLighting(const Light* light) const
             SetShaderUniform("lightingType", static_cast<int>(Light::LightType::POINT));
 #endif
             break;
+        
+        // Directional
+        case Light::LightType::DIRECTIONAL:
+#ifndef DISABLE_OPENGL_SUBROUTINES
+            SetShaderSubroutine("inputLightSubroutine", "directionalLightSubroutine", lightingShaderStage);
+#else
+            SetShaderUniform("lightingType", static_cast<int>(Light::LightType::DIRECTIONAL));
+#endif
+            break;
+        
+        // Global light
         default:
             std::cerr << "WARNING: Light type is not supported. Defaulting to global light. Your output may look wrong. -- Ignoring: " << static_cast<int>(light->GetLightType()) << std::endl;
 #ifndef DISABLE_OPENGL_SUBROUTINES

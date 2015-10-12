@@ -87,8 +87,13 @@
 		113B6BAC2A8842CC85FA725A /* Assignment1.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Assignment1.h; path = assignment1/Assignment1.h; sourceTree = SOURCE_ROOT; };
 		161D8B521BC08534000A6B6D /* Assignment2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Assignment2.cpp; path = assignment2/Assignment2.cpp; sourceTree = "<group>"; };
 		161D8B531BC08534000A6B6D /* Assignment2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Assignment2.h; path = assignment2/Assignment2.h; sourceTree = "<group>"; };
+		1630EB471BCB8CC3003ED631 /* PointLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PointLight.cpp; path = common/Scene/Light/PointLight.cpp; sourceTree = "<group>"; };
+		1630EB481BCB8CC3003ED631 /* PointLight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = PointLight.hpp; path = common/Scene/Light/PointLight.hpp; sourceTree = "<group>"; };
+		1630EB4A1BCB8D02003ED631 /* PointLight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PointLight.h; sourceTree = "<group>"; };
 		167D0D521BCB210300455BB6 /* Assignment3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Assignment3.cpp; path = assignment3/Assignment3.cpp; sourceTree = "<group>"; };
 		167D0D541BCB66C000455BB6 /* EpicShader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = EpicShader.cpp; path = common/Rendering/Shaders/EpicShader.cpp; sourceTree = "<group>"; };
+		167D0D571BCB89A900455BB6 /* PointLight.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = PointLight.c; path = ../../../Desktop/PointLight.c; sourceTree = "<group>"; };
+		167D0D591BCB89F300455BB6 /* PointLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PointLight.cpp; path = ../../../Desktop/PointLight.cpp; sourceTree = "<group>"; };
 		1E278FD8C5BF42FFAB80D7FC /* TextureLoader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = TextureLoader.h; path = common/Utility/Texture/TextureLoader.h; sourceTree = SOURCE_ROOT; };
 		2474B96E1F3B486BAE0C3BA4 /* Light.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Light.cpp; path = common/Scene/Light/Light.cpp; sourceTree = SOURCE_ROOT; };
 		2643CEC9E6A746C3BBD95B69 /* Renderer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Renderer.h; path = common/Rendering/Renderer.h; sourceTree = SOURCE_ROOT; };
@@ -334,6 +339,11 @@
 		D2C6E954FE754C7A9837B086 = {
 			isa = PBXGroup;
 			children = (
+				1630EB471BCB8CC3003ED631 /* PointLight.cpp */,
+				1630EB481BCB8CC3003ED631 /* PointLight.hpp */,
+				1630EB4A1BCB8D02003ED631 /* PointLight.h */,
+				167D0D571BCB89A900455BB6 /* PointLight.c */,
+				167D0D591BCB89F300455BB6 /* PointLight.cpp */,
 				167D0D541BCB66C000455BB6 /* EpicShader.cpp */,
 				167D0D521BCB210300455BB6 /* Assignment3.cpp */,
 				161D8B521BC08534000A6B6D /* Assignment2.cpp */,

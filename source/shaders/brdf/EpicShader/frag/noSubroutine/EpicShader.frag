@@ -24,6 +24,11 @@ struct PointLight {
 };
 uniform PointLight pointLight;
 
+struct DirectionalLight {
+    vec4 lightDirection;
+};
+uniform DirectionalLight directionalLight;
+
 uniform vec4 cameraPosition;
 
 uniform float constantAttenuation;
@@ -59,6 +64,24 @@ vec4 globalLightSubroutine(vec4 worldPosition, vec3 worldNormal)
 {
     return vec4(0,0,0,0);
 }
+
+vec4 directionalLightSubroutine(vec4 worldPosition, vec3 worldNormal)
+{
+    // Normal to the surface
+    vec4 N = vec4(normalize(worldNormal), 0.f);
+    
+    // Direction from the surface to the light
+    vec4 L = normalize(pointLight.pointPosition - worldPosition);
+    
+    // Direction from the surface to the eye
+    vec4 E = normalize(cameraPosition - worldPosition);
+    
+    // Direction of maximum highlights (see paper!)
+    vec4 H = normalize(L + E);
+    
+    return vec4(0,0,0,0);
+}
+
 
 vec4 AttenuateLight(vec4 originalColor, vec4 worldPosition)
 {
