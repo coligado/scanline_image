@@ -91,6 +91,7 @@
 		16432A3F1BCBA03600CE5079 /* EpicShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EpicShader.h; path = common/Rendering/Shaders/EpicShader.h; sourceTree = "<group>"; };
 		16432A411BCBB79200CE5079 /* directionalLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = directionalLight.h; path = common/Scene/Light/directionalLight.h; sourceTree = "<group>"; };
 		167D0D521BCB210300455BB6 /* Assignment3.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Assignment3.cpp; path = assignment3/Assignment3.cpp; sourceTree = "<group>"; };
+		16A050E81BCC6723004C8346 /* HemisphereLight.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = HemisphereLight.cpp; path = common/Scene/Light/HemisphereLight.cpp; sourceTree = "<group>"; };
 		1E278FD8C5BF42FFAB80D7FC /* TextureLoader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = TextureLoader.h; path = common/Utility/Texture/TextureLoader.h; sourceTree = SOURCE_ROOT; };
 		2474B96E1F3B486BAE0C3BA4 /* Light.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Light.cpp; path = common/Scene/Light/Light.cpp; sourceTree = SOURCE_ROOT; };
 		2643CEC9E6A746C3BBD95B69 /* Renderer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Renderer.h; path = common/Rendering/Renderer.h; sourceTree = SOURCE_ROOT; };
@@ -339,6 +340,7 @@
 		D2C6E954FE754C7A9837B086 = {
 			isa = PBXGroup;
 			children = (
+				16A050E81BCC6723004C8346 /* HemisphereLight.cpp */,
 				167D0D521BCB210300455BB6 /* Assignment3.cpp */,
 				161D8B521BC08534000A6B6D /* Assignment2.cpp */,
 				161D8B531BC08534000A6B6D /* Assignment2.h */,

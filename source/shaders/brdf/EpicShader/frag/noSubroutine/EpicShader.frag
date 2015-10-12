@@ -126,6 +126,27 @@ vec4 directionalLightSubroutine(vec4 worldPosition, vec3 worldNormal)
     return genericLight.lightColor * dotProduct(N,L) * (d + s);
 }
 
+vec4 hemisphereLightSubroutine(vec4 worldPosition, vec3 worldNormal)
+{
+    // Normal to the surface
+    vec4 N = vec4(normalize(worldNormal), 0.f);
+    
+    // Direction from the surface to the light
+    vec4 L = N;
+    
+    // Epic diffuse color
+    float m = material.metallic;
+    float sc = material.specular;
+    float r = material.roughness;
+    float useless = sc+r;
+    vec4 cDiff = fragmentColor * (1-m);
+    vec4 d = cDiff / 3.14;
+    
+    // TODO: is the clamp portion correct?
+    vec4 cLight = mix(genericLight.secondaryColor, genericLight.lightColor, clamp(N * vec4(0, 1.f, 0, 0) * 0.5 + 0.5, 0, 1));
+    
+    return cLight * dotProduct(N,L) * d;
+}
 
 vec4 AttenuateLight(vec4 originalColor, vec4 worldPosition)
 {

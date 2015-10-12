@@ -3,7 +3,7 @@
 #ifndef __POINT_LIGHT__
 #define __POINT_LIGHT__
 
-#include "common/Scene/Light.h"
+#include "common/Scene/Light/Light.h"
 
 class PointLight: public Light
 {

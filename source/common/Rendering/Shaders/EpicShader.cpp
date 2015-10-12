@@ -69,6 +69,15 @@ void EpicShader::SetupShaderLighting(const Light* light) const
             SetShaderUniform("directionalLightExample.lightDirection", light->GetForwardDirection());
 #endif
             break;
+                
+        // Hemisphere
+        case Light::LightType::HEMISPHERE:
+#ifndef DISABLE_OPENGL_SUBROUTINES
+            SetShaderSubroutine("inputLightSubroutine", "hemisphereLightSubroutine", lightingShaderStage);
+#else
+            SetShaderUniform("lightingType", static_cast<int>(Light::LightType::HEMISPHERE));
+#endif
+            break;
         
         // Global light
         default:
