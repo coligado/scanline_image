@@ -3,7 +3,7 @@
 #include "FreeImage.h"
 
 #undef ASSIGNMENT
-#define ASSIGNMENT 3
+#define ASSIGNMENT 4
 
 #if ASSIGNMENT == 1
 #include "assignment1/Assignment1.h"
@@ -14,6 +14,9 @@
 #elif ASSIGNMENT == 3
 #include "assignment3/Assignment3.h"
 #define APPLICATION Assignment3
+#elif ASSIGNMENT == 4
+#include "assignment4/Assignment4.h"
+#define APPLICATION Assignment4
 #else 
 #define APPLICATION Application
 #endif
