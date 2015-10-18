@@ -129,19 +129,26 @@ void Assignment4::SetupExample1()
 //    sceneObject->Rotate(glm::vec3(SceneObject::GetWorldRight()), PI / 4.f);
 //    scene->AddSceneObject(sceneObject);
     
-    // Downloaded object: boto dolphin
+    // boto1
     std::vector<std::shared_ptr<RenderingObject>> meshTemplate = MeshLoader::LoadMesh(shader, "outlander/Model/boto/boto.obj");
     if (meshTemplate.empty()) {
         std::cerr << "ERROR: Failed to load the model. Check your paths." << std::endl;
         return;
     }
     
-    sceneObject = std::make_shared<SceneObject>(meshTemplate);
-    camera->Translate(glm::vec3(SceneObject::GetWorldRight() * 4.0f)); // translate left
-    sceneObject->AddScale(4.0f); // scale
-    sceneObject->Rotate(glm::vec3(SceneObject::GetWorldUp()), 1.0f); // rotate right
-    sceneObject->Rotate(glm::vec3(SceneObject::GetWorldRight()), -0.2f); // rotate up
-    scene->AddSceneObject(sceneObject);
+    boto1 = std::make_shared<SceneObject>(meshTemplate);
+    boto1->AddScale(3.0f); // scale
+    boto1->Rotate(glm::vec3(SceneObject::GetWorldUp()), 1.0f); // rotate right
+    boto1->Rotate(glm::vec3(SceneObject::GetWorldRight()), -0.1f); // rotate up
+    boto1->Translate(glm::vec3(-3.5f,-1.f,0.f));
+    scene->AddSceneObject(boto1);
+    
+    boto2 = std::make_shared<SceneObject>(meshTemplate);
+    boto2->AddScale(3.0f); // scale
+    boto2->Rotate(glm::vec3(SceneObject::GetWorldUp()), -1.0f); // rotate right
+    boto2->Rotate(glm::vec3(SceneObject::GetWorldRight()), 0.1f); // rotate up
+    boto2->Translate(glm::vec3(3.5f,-1.f,0.f));
+    scene->AddSceneObject(boto2);
     
     // Created object: bottle
 //    std::vector<std::shared_ptr<RenderingObject>> meshTemplate2 = MeshLoader::LoadMesh(shader, "outlander/Model/bottle.obj");
