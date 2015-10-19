@@ -196,6 +196,7 @@ void Assignment4::SetupExample2()
         bottleShader->LoadMaterialFromAssimp(loadedMaterials[i]);
         bottleTemplate[i]->SetShader(std::move(bottleShader));
     }
+    size_t placeholder = bottleTemplate.size();
     
     bottle = std::make_shared<SceneObject>(bottleTemplate);
     bottle->AddScale(-0.5);
@@ -209,7 +210,7 @@ void Assignment4::SetupExample2()
         std::shared_ptr<BlinnPhongShader> glassShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
         glassShader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
 //        glassShader->Get(AI_MATKEY_COLOR_DIFFUSE, glm::value_ptr(diffuse), nullptr);
-        glassShader->LoadMaterialFromAssimp(loadedMaterials[i]);
+        glassShader->LoadMaterialFromAssimp(loadedMaterials[placeholder + i]);
         glassTemplate[i]->SetShader(std::move(glassShader));
     }
     

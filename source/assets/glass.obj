@@ -1,6 +1,6 @@
 # Blender v2.76 (sub 0) OBJ File: 'with_glass_material.blend'
 # www.blender.org
-mtllib with_glass_material_bejewel.mtl
+mtllib glass.mtl
 o Plane.001
 v 3.091468 -0.139827 0.010013
 v 3.096181 0.345746 0.010351
