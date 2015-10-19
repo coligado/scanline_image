@@ -141,9 +141,7 @@ dependencies: \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/glm/glm/gtx/dual_quaternion.inl \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/glm/glm/gtx/string_cast.inl \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/glew/include/GL/glew.h \
-  /Users/leacoligado/Downloads/cs148opengl4/source/common/Rendering/RenderingObject.h \
-  /Users/leacoligado/Downloads/cs148opengl4/source/common/Rendering/Shaders/ShaderProgram.h \
-  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/Importer.hpp \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/material.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/types.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/defs.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/vector3.h \
@@ -160,14 +158,16 @@ dependencies: \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/quaternion.inl \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/matrix3x3.inl \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/matrix4x4.inl \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/material.inl \
+  /Users/leacoligado/Downloads/cs148opengl4/source/common/Rendering/RenderingObject.h \
+  /Users/leacoligado/Downloads/cs148opengl4/source/common/Rendering/Shaders/ShaderProgram.h \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/Importer.hpp \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/config.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/scene.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/texture.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/mesh.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/light.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/camera.h \
-  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/material.h \
-  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/material.inl \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/anim.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/metadata.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/postprocess.h

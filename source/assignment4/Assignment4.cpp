@@ -29,12 +29,12 @@ glm::vec2 Assignment4::GetWindowSize() const
 
 void Assignment4::SetupScene()
 {
-    SetupExample1();
+    SetupExample2();
 }
 
 void Assignment4::SetupCamera()
 {
-    camera->SetPosition(glm::vec3(0.f, 0.f, 10.f));
+    camera->Translate(glm::vec3(0.f, 0.f, 10.f));
 }
 
 void Assignment4::HandleInput(SDL_Keysym key, Uint32 state, Uint8 repeat, double timestamp, double deltaTime)
@@ -47,6 +47,11 @@ void Assignment4::HandleInput(SDL_Keysym key, Uint32 state, Uint8 repeat, double
     case SDLK_1:
         if (!repeat && state == SDL_KEYDOWN) {
             SetupExample1();
+        }
+        break;
+    case SDLK_2:
+        if (!repeat && state == SDL_KEYDOWN) {
+            SetupExample2();
         }
         break;
     case SDLK_UP:
@@ -106,11 +111,43 @@ void Assignment4::SetupExample1()
         { GL_FRAGMENT_SHADER, "brdf/blinnphong/fragTexture/noSubroutine/blinnphong.frag"}
     };
 #endif
-
-    std::unique_ptr<BlinnPhongLightProperties> lightProperties = BlinnPhongShader::CreateLightProperties();
+    std::shared_ptr<BlinnPhongShader> shader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
+    shader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
+    shader->SetTexture(BlinnPhongShader::TextureSlots::DIFFUSE, TextureLoader::LoadTexture("brick/bricktexture.jpg"));
+    shader->SetTexture(BlinnPhongShader::TextureSlots::SPECULAR, TextureLoader::LoadTexture("brick/bricktexture.jpg"));
+    
+    std::unique_ptr<LightProperties> lightProperties = make_unique<LightProperties>();
     lightProperties->diffuseColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
     lightProperties->specularColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
+    
+    std::shared_ptr<Light> pointLight = std::make_shared<Light>(std::move(lightProperties));
+    pointLight->SetPosition(glm::vec3(10.f, 10.f, 10.f));
+    scene->AddLight(pointLight);
+    
+    std::vector<std::shared_ptr<RenderingObject>> sphereTemplate = MeshLoader::LoadMesh(shader, "sphere.obj");
+    std::shared_ptr<class SceneObject> sceneObject = std::make_shared<SceneObject>(sphereTemplate);
+    sceneObject->Rotate(glm::vec3(SceneObject::GetWorldRight()), PI / 4.f);
+    scene->AddSceneObject(sceneObject);
+}
 
+void Assignment4::SetupExample2()
+{
+    scene->ClearScene();
+#ifndef DISABLE_OPENGL_SUBROUTINES
+    std::unordered_map<GLenum, std::string> shaderSpec = {
+        { GL_VERTEX_SHADER, "brdf/blinnphong/fragTexture/blinnphong.vert" },
+        { GL_FRAGMENT_SHADER, "brdf/blinnphong/fragTexture/blinnphong.frag" }
+    };
+#else
+    std::unordered_map<GLenum, std::string> shaderSpec = {
+        { GL_VERTEX_SHADER, "brdf/blinnphong/fragTexture/noSubroutine/blinnphong.vert" },
+        { GL_FRAGMENT_SHADER, "brdf/blinnphong/fragTexture/noSubroutine/blinnphong.frag" }
+    };
+#endif
+    std::unique_ptr<LightProperties> lightProperties = make_unique<LightProperties>();
+    lightProperties->diffuseColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
+    lightProperties->specularColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
+    
     std::shared_ptr<Light> pointLight = std::make_shared<Light>(std::move(lightProperties));
     pointLight->SetPosition(glm::vec3(10.f, 10.f, 10.f));
     scene->AddLight(pointLight);
@@ -143,18 +180,30 @@ void Assignment4::SetupExample1()
     
     
     // bottle
-    std::shared_ptr<BlinnPhongShader> bottleShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
-    bottleShader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
-    bottleShader->SetTexture(BlinnPhongShader::TextureSlots::DIFFUSE, TextureLoader::LoadTexture("outlander/Model/wine_bottle/cork.jpg"));
-    bottleShader->SetTexture(BlinnPhongShader::TextureSlots::SPECULAR, TextureLoader::LoadTexture("outlander/Model/wine_bottle/cork.jpg"));
+//    std::shared_ptr<BlinnPhongShader> bottleShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
+//    bottleShader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
+//    bottleShader->SetTexture(BlinnPhongShader::TextureSlots::DIFFUSE, TextureLoader::LoadTexture("outlander/Model/wine_bottle/cork.jpg"));
+//    bottleShader->SetTexture(BlinnPhongShader::TextureSlots::SPECULAR, TextureLoader::LoadTexture("outlander/Model/wine_bottle/cork.jpg"));
     
-    std::vector<std::shared_ptr<RenderingObject>> bottleMeshTemplate = MeshLoader::LoadMesh(bottleShader, "outlander/Model/wine_bottle/wine_bottle.obj");
-    if (bottleMeshTemplate.empty()) {
-        std::cerr << "ERROR: Failed to load the model. Check your paths." << std::endl;
-        return;
+    //    std::vector<std::shared_ptr<RenderingObject>> bottleMeshTemplate = MeshLoader::LoadMesh(bottleShader, "outlander/Model/wine_bottle/wine_bottle.obj");
+    //    if (bottleMeshTemplate.empty()) {
+    //        std::cerr << "ERROR: Failed to load the model. Check your paths." << std::endl;
+    //        return;
+    //    }
+    
+    std::vector<std::shared_ptr<aiMaterial>> loadedMaterials;
+    std::vector<std::shared_ptr<RenderingObject>> bottleTemplate = MeshLoader::LoadMesh(nullptr, "wine_bottle.obj", &loadedMaterials);
+    for (size_t i = 0; i < bottleTemplate.size(); ++i) {
+        std::shared_ptr<BlinnPhongShader> bottleShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
+        bottleShader->LoadMaterialFromAssimp(loadedMaterials[i]);
+        bottleTemplate[i]->SetShader(std::move(bottleShader));
     }
     
-    bottle = std::make_shared<SceneObject>(bottleMeshTemplate);
+//    std::shared_ptr<class SceneObject> sceneObject = std::make_shared<SceneObject>(bottleTemplate);
+//    sceneObject->Rotate(glm::vec3(SceneObject::GetWorldRight()), PI / 4.f);
+//    scene->AddSceneObject(sceneObject);
+    
+    bottle = std::make_shared<SceneObject>(bottleTemplate);
     bottle->AddScale(-0.5);
     bottle->Translate(glm::vec3(-1.f,-2.f,1.f));
     scene->AddSceneObject(bottle);

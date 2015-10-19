@@ -145,7 +145,24 @@ dependencies: \
   /Users/leacoligado/Downloads/cs148opengl4/source/common/Rendering/Textures/Texture.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/common/Scene/Light/Light.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/common/Scene/SceneObject.h \
-  /Users/leacoligado/Downloads/cs148opengl4/source/common/Scene/Light/Properties/BlinnPhong/BlinnPhongLightProperties.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/common/Scene/Light/LightProperties.h \
   /Users/leacoligado/Downloads/cs148opengl4/source/common/Scene/Camera/Camera.h \
-  /Users/leacoligado/Downloads/cs148opengl4/source/common/Utility/Texture/TextureLoader.h
+  /Users/leacoligado/Downloads/cs148opengl4/source/common/Utility/Texture/TextureLoader.h \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/material.h \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/types.h \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/defs.h \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/vector3.h \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/./Compiler/pushpack1.h \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/./Compiler/poppack1.h \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/vector2.h \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/color4.h \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/matrix3x3.h \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/matrix4x4.h \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/quaternion.h \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/vector2.inl \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/vector3.inl \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/color4.inl \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/quaternion.inl \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/matrix3x3.inl \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/matrix4x4.inl \
+  /Users/leacoligado/Downloads/cs148opengl4/source/external/assimp/include/assimp/material.inl
