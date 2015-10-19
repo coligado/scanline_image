@@ -106,15 +106,6 @@ void Assignment4::SetupExample1()
         { GL_FRAGMENT_SHADER, "brdf/blinnphong/fragTexture/noSubroutine/blinnphong.frag"}
     };
 #endif
-//    std::shared_ptr<BlinnPhongShader> shader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
-//    shader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
-//    shader->SetTexture(BlinnPhongShader::TextureSlots::DIFFUSE, TextureLoader::LoadTexture("brick/bricktexture.jpg"));
-//    shader->SetTexture(BlinnPhongShader::TextureSlots::SPECULAR, TextureLoader::LoadTexture("brick/bricktexture.jpg"));
-    
-    std::shared_ptr<BlinnPhongShader> shader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
-    shader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
-    shader->SetTexture(BlinnPhongShader::TextureSlots::DIFFUSE, TextureLoader::LoadTexture("outlander/Model/boto/Textures/boto.png"));
-    shader->SetTexture(BlinnPhongShader::TextureSlots::SPECULAR, TextureLoader::LoadTexture("outlander/Model/boto/Textures/boto.png"));
 
     std::unique_ptr<BlinnPhongLightProperties> lightProperties = BlinnPhongShader::CreateLightProperties();
     lightProperties->diffuseColor = glm::vec4(1.f, 1.f, 1.f, 1.f);
@@ -123,43 +114,50 @@ void Assignment4::SetupExample1()
     std::shared_ptr<Light> pointLight = std::make_shared<Light>(std::move(lightProperties));
     pointLight->SetPosition(glm::vec3(10.f, 10.f, 10.f));
     scene->AddLight(pointLight);
-
-//    std::shared_ptr<RenderingObject> sphereTemplate = PrimitiveCreator::CreateIcoSphere(shader, 5.f, 4);
-//    std::shared_ptr<class SceneObject> sceneObject = std::make_shared<SceneObject>(sphereTemplate);
-//    sceneObject->Rotate(glm::vec3(SceneObject::GetWorldRight()), PI / 4.f);
-//    scene->AddSceneObject(sceneObject);
     
-    // boto1
-    std::vector<std::shared_ptr<RenderingObject>> meshTemplate = MeshLoader::LoadMesh(shader, "outlander/Model/boto/boto.obj");
-    if (meshTemplate.empty()) {
+    std::shared_ptr<BlinnPhongShader> botoShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
+    botoShader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
+    botoShader->SetTexture(BlinnPhongShader::TextureSlots::DIFFUSE, TextureLoader::LoadTexture("outlander/Model/boto/Textures/boto.png"));
+    botoShader->SetTexture(BlinnPhongShader::TextureSlots::SPECULAR, TextureLoader::LoadTexture("outlander/Model/boto/Textures/boto.png"));
+    
+    // botos
+    std::vector<std::shared_ptr<RenderingObject>> botoMeshTemplate = MeshLoader::LoadMesh(botoShader, "outlander/Model/boto/boto.obj");
+    if (botoMeshTemplate.empty()) {
         std::cerr << "ERROR: Failed to load the model. Check your paths." << std::endl;
         return;
     }
     
-    boto1 = std::make_shared<SceneObject>(meshTemplate);
-    boto1->AddScale(3.0f); // scale
-    boto1->Rotate(glm::vec3(SceneObject::GetWorldUp()), 1.0f); // rotate right
-    boto1->Rotate(glm::vec3(SceneObject::GetWorldRight()), -0.1f); // rotate up
+    boto1 = std::make_shared<SceneObject>(botoMeshTemplate);
+    boto1->AddScale(3.0f);
+    boto1->Rotate(glm::vec3(SceneObject::GetWorldUp()), 1.0f);
+    boto1->Rotate(glm::vec3(SceneObject::GetWorldRight()), -0.1f);
     boto1->Translate(glm::vec3(-3.5f,-1.f,0.f));
     scene->AddSceneObject(boto1);
     
-    boto2 = std::make_shared<SceneObject>(meshTemplate);
-    boto2->AddScale(3.0f); // scale
-    boto2->Rotate(glm::vec3(SceneObject::GetWorldUp()), -1.0f); // rotate right
-    boto2->Rotate(glm::vec3(SceneObject::GetWorldRight()), 0.1f); // rotate up
+    boto2 = std::make_shared<SceneObject>(botoMeshTemplate);
+    boto2->AddScale(3.0f);
+    boto2->Rotate(glm::vec3(SceneObject::GetWorldUp()), -1.0f);
+    boto2->Rotate(glm::vec3(SceneObject::GetWorldRight()), 0.1f);
     boto2->Translate(glm::vec3(3.5f,-1.f,0.f));
     scene->AddSceneObject(boto2);
     
-    // Created object: bottle
-//    std::vector<std::shared_ptr<RenderingObject>> meshTemplate2 = MeshLoader::LoadMesh(shader, "outlander/Model/bottle.obj");
-//    if (meshTemplate2.empty()) {
-//        std::cerr << "ERROR: Failed to load the model. Check your paths." << std::endl;
-//        return;
-//    }
-//    sceneObject2 = std::make_shared<SceneObject>(meshTemplate2);
-//    sceneObject2->AddScale(-0.7f);
-//    sceneObject2->SetPosition(glm::vec3(4.f, 0.f, 0.f));
-//    scene->AddSceneObject(sceneObject2);
+    
+    // bottle
+    std::shared_ptr<BlinnPhongShader> bottleShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
+    bottleShader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
+    bottleShader->SetTexture(BlinnPhongShader::TextureSlots::DIFFUSE, TextureLoader::LoadTexture("outlander/Model/wine_bottle/cork.jpg"));
+    bottleShader->SetTexture(BlinnPhongShader::TextureSlots::SPECULAR, TextureLoader::LoadTexture("outlander/Model/wine_bottle/cork.jpg"));
+    
+    std::vector<std::shared_ptr<RenderingObject>> bottleMeshTemplate = MeshLoader::LoadMesh(bottleShader, "outlander/Model/wine_bottle/wine_bottle.obj");
+    if (bottleMeshTemplate.empty()) {
+        std::cerr << "ERROR: Failed to load the model. Check your paths." << std::endl;
+        return;
+    }
+    
+    bottle = std::make_shared<SceneObject>(bottleMeshTemplate);
+    bottle->AddScale(-0.5);
+    bottle->Translate(glm::vec3(-1.f,-2.f,1.f));
+    scene->AddSceneObject(bottle);
 }
 
 void Assignment4::Tick(double deltaTime)

@@ -28,6 +28,7 @@ private:
     
     std::shared_ptr<class SceneObject> boto1;
     std::shared_ptr<class SceneObject> boto2;
+    std::shared_ptr<class SceneObject> bottle;
 };
 
 #endif
