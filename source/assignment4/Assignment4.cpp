@@ -164,10 +164,10 @@ void Assignment4::SetupExample2()
     // botos
     std::shared_ptr<BlinnPhongShader> botoShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
     botoShader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
-    botoShader->SetTexture(BlinnPhongShader::TextureSlots::DIFFUSE, TextureLoader::LoadTexture("outlander/Model/boto/Textures/boto.png"));
-    botoShader->SetTexture(BlinnPhongShader::TextureSlots::SPECULAR, TextureLoader::LoadTexture("outlander/Model/boto/Textures/boto.png"));
+    botoShader->SetTexture(BlinnPhongShader::TextureSlots::DIFFUSE, TextureLoader::LoadTexture("boto/Textures/boto.png"));
+    botoShader->SetTexture(BlinnPhongShader::TextureSlots::SPECULAR, TextureLoader::LoadTexture("boto/Textures/boto.png"));
 
-    std::vector<std::shared_ptr<RenderingObject>> botoMeshTemplate = MeshLoader::LoadMesh(botoShader, "outlander/Model/boto/boto.obj");
+    std::vector<std::shared_ptr<RenderingObject>> botoMeshTemplate = MeshLoader::LoadMesh(botoShader, "boto/boto.obj");
     if (botoMeshTemplate.empty()) {
         std::cerr << "ERROR: Failed to load the model. Check your paths." << std::endl;
         return;
@@ -175,22 +175,22 @@ void Assignment4::SetupExample2()
     
     boto1 = std::make_shared<SceneObject>(botoMeshTemplate);
     boto1->AddScale(3.0f);
-    boto1->Rotate(glm::vec3(SceneObject::GetWorldUp()), 1.0f);
-    boto1->Rotate(glm::vec3(SceneObject::GetWorldRight()), -0.1f);
-    boto1->Translate(glm::vec3(-3.5f,-1.f,0.f));
+    boto1->Rotate(glm::vec3(SceneObject::GetWorldUp()), 1.1f);
+//    boto1->Rotate(glm::vec3(SceneObject::GetWorldRight()), 0.1f);
+    boto1->Translate(glm::vec3(-4.f,-1.f,-1.f));
     scene->AddSceneObject(boto1);
     
     boto2 = std::make_shared<SceneObject>(botoMeshTemplate);
     boto2->AddScale(3.0f);
     boto2->Rotate(glm::vec3(SceneObject::GetWorldUp()), -1.0f);
-    boto2->Rotate(glm::vec3(SceneObject::GetWorldRight()), 0.1f);
-    boto2->Translate(glm::vec3(3.5f,-1.f,0.f));
+    boto2->Rotate(glm::vec3(SceneObject::GetWorldRight()), -0.1f);
+    boto2->Translate(glm::vec3(4.f,-1.f,0.f));
     scene->AddSceneObject(boto2);
     
     
     // bottle
     std::vector<std::shared_ptr<aiMaterial>> loadedMaterials;
-    std::vector<std::shared_ptr<RenderingObject>> bottleTemplate = MeshLoader::LoadMesh(nullptr, "wine_bottle.obj", &loadedMaterials);
+    std::vector<std::shared_ptr<RenderingObject>> bottleTemplate = MeshLoader::LoadMesh(nullptr, "wine_bottle/wine_bottle.obj", &loadedMaterials);
     for (size_t i = 0; i < bottleTemplate.size(); ++i) {
         std::shared_ptr<BlinnPhongShader> bottleShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
         bottleShader->LoadMaterialFromAssimp(loadedMaterials[i]);
@@ -199,44 +199,44 @@ void Assignment4::SetupExample2()
     size_t placeholder = bottleTemplate.size();
     
     bottle = std::make_shared<SceneObject>(bottleTemplate);
-    bottle->AddScale(-0.5);
+    bottle->AddScale(-0.6f);
     bottle->Rotate(glm::vec3(SceneObject::GetWorldUp()), 1.0f);
-    bottle->Translate(glm::vec3(-1.f,-2.f,1.f));
+    bottle->Translate(glm::vec3(0.f,-1.f,3.5f));
     scene->AddSceneObject(bottle);
     
     // glass
-    std::vector<std::shared_ptr<RenderingObject>> glassTemplate = MeshLoader::LoadMesh(nullptr, "glass.obj", &loadedMaterials);
+    std::vector<std::shared_ptr<RenderingObject>> glassTemplate = MeshLoader::LoadMesh(nullptr, "glass/glass.obj", &loadedMaterials);
     for (size_t i = 0; i < glassTemplate.size(); ++i) {
         std::shared_ptr<BlinnPhongShader> glassShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
         glassShader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
-//        glassShader->Get(AI_MATKEY_COLOR_DIFFUSE, glm::value_ptr(diffuse), nullptr);
         glassShader->LoadMaterialFromAssimp(loadedMaterials[placeholder + i]);
         glassTemplate[i]->SetShader(std::move(glassShader));
     }
     
     glass1 = std::make_shared<SceneObject>(glassTemplate);
-    glass1->AddScale(-0.95f);
-    glass1->Translate(glm::vec3(-3.f,-2.f,1.f));
+    glass1->AddScale(-0.96f);
+    glass1->Translate(glm::vec3(-0.7f,-1.f,3.5f));
     scene->AddSceneObject(glass1);
     
     glass2 = std::make_shared<SceneObject>(glassTemplate);
-    glass2->AddScale(-0.95f);
-    glass2->Translate(glm::vec3(2.f,-2.f,1.f));
+    glass2->AddScale(-0.96f);
+    glass2->Translate(glm::vec3(0.7f,-1.f,3.5f));
     scene->AddSceneObject(glass2);
+    
+    placeholder += glassTemplate.size();
     
     // ocean
     std::vector<std::shared_ptr<RenderingObject>> oceanTemplate = MeshLoader::LoadMesh(nullptr, "ocean/ocean.obj", &loadedMaterials);
     for (size_t i = 0; i < oceanTemplate.size(); ++i) {
         std::shared_ptr<BlinnPhongShader> oceanShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
-        oceanShader->LoadMaterialFromAssimp(loadedMaterials[i]);
-        oceanShader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
+        oceanShader->LoadMaterialFromAssimp(loadedMaterials[placeholder + i]);
         oceanTemplate[i]->SetShader(std::move(oceanShader));
     }
     
     ocean = std::make_shared<SceneObject>(oceanTemplate);
-    ocean->Rotate(glm::vec3(SceneObject::GetWorldRight()), 1.6f);
-    ocean->AddScale(9.0f);
-    ocean->Translate(glm::vec3(0.f,0.f,-10.f));
+    ocean->Rotate(glm::vec3(SceneObject::GetWorldRight()), 0.5f);
+    ocean->AddScale(10.0f);
+    ocean->Translate(glm::vec3(0.f,0.f,0.f));
     scene->AddSceneObject(ocean);
 }
 
