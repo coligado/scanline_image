@@ -34,7 +34,8 @@ void Assignment4::SetupScene()
 
 void Assignment4::SetupCamera()
 {
-    camera->Translate(glm::vec3(0.f, 0.f, 10.f));
+//    camera->Translate(glm::vec3(0.f, 0.f, 10.f));
+    camera->Translate(glm::vec3(0.f, 0.f, 20.f));
 }
 
 void Assignment4::HandleInput(SDL_Keysym key, Uint32 state, Uint8 repeat, double timestamp, double deltaTime)
@@ -176,7 +177,6 @@ void Assignment4::SetupExample2()
     boto1 = std::make_shared<SceneObject>(botoMeshTemplate);
     boto1->AddScale(3.0f);
     boto1->Rotate(glm::vec3(SceneObject::GetWorldUp()), 1.1f);
-//    boto1->Rotate(glm::vec3(SceneObject::GetWorldRight()), 0.1f);
     boto1->Translate(glm::vec3(-4.f,-1.f,-1.f));
     scene->AddSceneObject(boto1);
     
@@ -187,16 +187,30 @@ void Assignment4::SetupExample2()
     boto2->Translate(glm::vec3(4.f,-1.f,0.f));
     scene->AddSceneObject(boto2);
     
+    std::vector<std::shared_ptr<aiMaterial>> loadedMaterials;
+    
+    // sunset
+    std::vector<std::shared_ptr<RenderingObject>> sunsetTemplate = MeshLoader::LoadMesh(nullptr, "sunset/sunset.obj", &loadedMaterials);
+    for (size_t i = 0; i < sunsetTemplate.size(); ++i) {
+        std::shared_ptr<BlinnPhongShader> sunsetShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
+        sunsetShader->LoadMaterialFromAssimp(loadedMaterials[i]);
+        sunsetShader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
+        sunsetTemplate[i]->SetShader(std::move(sunsetShader));
+    }
+    sunset = std::make_shared<SceneObject>(sunsetTemplate);
+    sunset->AddScale(1.5f);
+    sunset->Translate(glm::vec3(0.f,-15.f,-10.f));
+    scene->AddSceneObject(sunset);
+    
+    size_t placeholder = sunsetTemplate.size();
     
     // bottle
-    std::vector<std::shared_ptr<aiMaterial>> loadedMaterials;
     std::vector<std::shared_ptr<RenderingObject>> bottleTemplate = MeshLoader::LoadMesh(nullptr, "wine_bottle/wine_bottle.obj", &loadedMaterials);
     for (size_t i = 0; i < bottleTemplate.size(); ++i) {
         std::shared_ptr<BlinnPhongShader> bottleShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
-        bottleShader->LoadMaterialFromAssimp(loadedMaterials[i]);
+        bottleShader->LoadMaterialFromAssimp(loadedMaterials[placeholder+i]);
         bottleTemplate[i]->SetShader(std::move(bottleShader));
     }
-    size_t placeholder = bottleTemplate.size();
     
     bottle = std::make_shared<SceneObject>(bottleTemplate);
     bottle->AddScale(-0.6f);
@@ -204,6 +218,8 @@ void Assignment4::SetupExample2()
     bottle->Translate(glm::vec3(0.f,-1.f,3.5f));
     scene->AddSceneObject(bottle);
     
+    placeholder += bottleTemplate.size();
+
     // glass
     std::vector<std::shared_ptr<RenderingObject>> glassTemplate = MeshLoader::LoadMesh(nullptr, "glass/glass.obj", &loadedMaterials);
     for (size_t i = 0; i < glassTemplate.size(); ++i) {

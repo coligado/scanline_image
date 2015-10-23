@@ -33,6 +33,7 @@ private:
     std::shared_ptr<class SceneObject> glass1;
     std::shared_ptr<class SceneObject> glass2;
     std::shared_ptr<class SceneObject> ocean;
+    std::shared_ptr<class SceneObject> sunset;
 };
 
 #endif
