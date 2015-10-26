@@ -32,6 +32,7 @@ private:
     std::shared_ptr<class SceneObject> bottle;
     std::shared_ptr<class SceneObject> glass1;
     std::shared_ptr<class SceneObject> glass2;
+    std::shared_ptr<class SceneObject> bubbles;
     std::shared_ptr<class SceneObject> ocean;
     std::shared_ptr<class SceneObject> sunset;
     std::shared_ptr<class SceneObject> surfboard;

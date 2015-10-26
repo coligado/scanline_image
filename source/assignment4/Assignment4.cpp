@@ -315,6 +315,20 @@ void Assignment4::SetupExample2()
     island6->Rotate(glm::vec3(SceneObject::GetWorldUp()), 0.7f);
     island6->Translate(glm::vec3(15.f,1.2f,-12.0f));
     scene->AddSceneObject(island6);
+    
+//    std::vector<std::shared_ptr<aiMaterial>> loadedMaterials3;
+    // bubbles
+//    std::vector<std::shared_ptr<RenderingObject>> bubblesTemplate = MeshLoader::LoadMesh(nullptr, "bubbles/bubbles.obj", &loadedMaterials3);
+//    for (size_t i = 0; i < bubblesTemplate.size(); ++i) {
+//        std::shared_ptr<BlinnPhongShader> bubblesShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
+//        bubblesShader->LoadMaterialFromAssimp(loadedMaterials3[i]);
+//        bubblesTemplate[i]->SetShader(std::move(bubblesShader));
+//    }
+//    
+//    bubbles = std::make_shared<SceneObject>(bubblesTemplate);
+//    bubbles->AddScale(-0.9f);
+//    bubbles->Translate(glm::vec3(-6.f,1.f,0.f));
+//    scene->AddSceneObject(bubbles);
 }
 
 void Assignment4::Tick(double deltaTime)
