@@ -1,0 +1,11 @@
+newmtl ocean:mtl_001
+illum 4
+Kd 0.40 0.40 0.40
+Ka 0.15 0.41 0.59
+Tf 0.70 0.70 0.70
+Ni 1.00
+Ks 1.00 1.00 1.00
+Ns 50.00
+
+map_Kd ocean/textures/txt_001_diff.png
+map_Bump ocean/textures/txt_002_bump.png

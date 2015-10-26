@@ -5,7 +5,7 @@
 #include "common/Utility/Texture/TextureLoader.h"
 
 Assignment4::Assignment4(std::shared_ptr<class Scene> inputScene, std::shared_ptr<class Camera> inputCamera):
-    Application(std::move(inputScene), std::move(inputCamera))
+Application(std::move(inputScene), std::move(inputCamera))
 {
 }
 
@@ -34,61 +34,61 @@ void Assignment4::SetupScene()
 
 void Assignment4::SetupCamera()
 {
-//    camera->Translate(glm::vec3(0.f, 0.f, 10.f));
-    camera->Translate(glm::vec3(0.f, 0.f, 20.f));
+    camera->Translate(glm::vec3(0.f, 0.f, 10.f));
+    //    camera->Translate(glm::vec3(0.f, 0.f, 20.f));
 }
 
 void Assignment4::HandleInput(SDL_Keysym key, Uint32 state, Uint8 repeat, double timestamp, double deltaTime)
-{   
+{
     if (state != SDL_KEYDOWN) {
         return;
     }
-
+    
     switch (key.sym) {
-    case SDLK_1:
-        if (!repeat && state == SDL_KEYDOWN) {
-            SetupExample1();
-        }
-        break;
-    case SDLK_2:
-        if (!repeat && state == SDL_KEYDOWN) {
-            SetupExample2();
-        }
-        break;
-    case SDLK_UP:
-        camera->Rotate(glm::vec3(camera->GetRightDirection()), 0.1f);
-        break;
-    case SDLK_DOWN:
-        camera->Rotate(glm::vec3(camera->GetRightDirection()), -0.1f);
-        break;
-    case SDLK_RIGHT:
-        camera->Rotate(glm::vec3(SceneObject::GetWorldUp()), -0.1f);
-        break;
-    case SDLK_LEFT:
-        camera->Rotate(glm::vec3(SceneObject::GetWorldUp()), 0.1f);
-        break;
-    case SDLK_w:
-        camera->Translate(glm::vec3(camera->GetForwardDirection() * 0.3f));
-        break;
-    case SDLK_a:
-        camera->Translate(glm::vec3(camera->GetRightDirection() * -0.3f));
-        break;
-    case SDLK_s:
-        camera->Translate(glm::vec3(camera->GetForwardDirection() * -0.3f));
-        break;
-    case SDLK_d:
-        camera->Translate(glm::vec3(camera->GetRightDirection() * 0.3f));
-        break;
-    case SDLK_SPACE:
-        camera->Translate(glm::vec3(camera->GetUpDirection() * 0.3f));
-        break;
-    case SDLK_LCTRL:
-    case SDLK_RCTRL:
-        camera->Translate(glm::vec3(camera->GetUpDirection() * -0.3f));
-        break;
-    default:
-        Application::HandleInput(key, state, repeat, timestamp, deltaTime);
-        break;
+        case SDLK_1:
+            if (!repeat && state == SDL_KEYDOWN) {
+                SetupExample1();
+            }
+            break;
+        case SDLK_2:
+            if (!repeat && state == SDL_KEYDOWN) {
+                SetupExample2();
+            }
+            break;
+        case SDLK_UP:
+            camera->Rotate(glm::vec3(camera->GetRightDirection()), 0.1f);
+            break;
+        case SDLK_DOWN:
+            camera->Rotate(glm::vec3(camera->GetRightDirection()), -0.1f);
+            break;
+        case SDLK_RIGHT:
+            camera->Rotate(glm::vec3(SceneObject::GetWorldUp()), -0.1f);
+            break;
+        case SDLK_LEFT:
+            camera->Rotate(glm::vec3(SceneObject::GetWorldUp()), 0.1f);
+            break;
+        case SDLK_w:
+            camera->Translate(glm::vec3(camera->GetForwardDirection() * 0.3f));
+            break;
+        case SDLK_a:
+            camera->Translate(glm::vec3(camera->GetRightDirection() * -0.3f));
+            break;
+        case SDLK_s:
+            camera->Translate(glm::vec3(camera->GetForwardDirection() * -0.3f));
+            break;
+        case SDLK_d:
+            camera->Translate(glm::vec3(camera->GetRightDirection() * 0.3f));
+            break;
+        case SDLK_SPACE:
+            camera->Translate(glm::vec3(camera->GetUpDirection() * 0.3f));
+            break;
+        case SDLK_LCTRL:
+        case SDLK_RCTRL:
+            camera->Translate(glm::vec3(camera->GetUpDirection() * -0.3f));
+            break;
+        default:
+            Application::HandleInput(key, state, repeat, timestamp, deltaTime);
+            break;
     }
 }
 
@@ -134,7 +134,7 @@ void Assignment4::SetupExample1()
 void Assignment4::SetupExample2()
 {
     scene->ClearScene();
-
+    
 #ifndef DISABLE_OPENGL_SUBROUTINES
     std::unordered_map<GLenum, std::string> shaderSpec = {
         { GL_VERTEX_SHADER, "brdf/blinnphong/fragTexture/blinnphong.vert" },
@@ -167,7 +167,7 @@ void Assignment4::SetupExample2()
     botoShader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
     botoShader->SetTexture(BlinnPhongShader::TextureSlots::DIFFUSE, TextureLoader::LoadTexture("boto/Textures/boto.png"));
     botoShader->SetTexture(BlinnPhongShader::TextureSlots::SPECULAR, TextureLoader::LoadTexture("boto/Textures/boto.png"));
-
+    
     std::vector<std::shared_ptr<RenderingObject>> botoMeshTemplate = MeshLoader::LoadMesh(botoShader, "boto/boto.obj");
     if (botoMeshTemplate.empty()) {
         std::cerr << "ERROR: Failed to load the model. Check your paths." << std::endl;
@@ -177,15 +177,34 @@ void Assignment4::SetupExample2()
     boto1 = std::make_shared<SceneObject>(botoMeshTemplate);
     boto1->AddScale(3.0f);
     boto1->Rotate(glm::vec3(SceneObject::GetWorldUp()), 1.1f);
-    boto1->Translate(glm::vec3(-4.f,-1.f,-1.f));
+    boto1->Translate(glm::vec3(-4.f,-3.f,-2.f));
     scene->AddSceneObject(boto1);
     
     boto2 = std::make_shared<SceneObject>(botoMeshTemplate);
     boto2->AddScale(3.0f);
     boto2->Rotate(glm::vec3(SceneObject::GetWorldUp()), -1.0f);
     boto2->Rotate(glm::vec3(SceneObject::GetWorldRight()), -0.1f);
-    boto2->Translate(glm::vec3(4.f,-1.f,0.f));
+    boto2->Translate(glm::vec3(4.f,-3.f,-1.f));
     scene->AddSceneObject(boto2);
+    
+    // surfboard
+    std::shared_ptr<BlinnPhongShader> surfboardShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
+    surfboardShader->SetDiffuse(glm::vec4(0.8f, 0.8f, 0.8f, 1.f));
+    surfboardShader->SetTexture(BlinnPhongShader::TextureSlots::DIFFUSE, TextureLoader::LoadTexture("surfboard/surfboard.png"));
+    surfboardShader->SetTexture(BlinnPhongShader::TextureSlots::SPECULAR, TextureLoader::LoadTexture("surfboard/surfboard.png"));
+    
+    std::vector<std::shared_ptr<RenderingObject>> surfboardTemplate = MeshLoader::LoadMesh(surfboardShader, "surfboard/surfboard.obj");
+    if (surfboardTemplate.empty()) {
+        std::cerr << "ERROR: Failed to load the model. Check your paths." << std::endl;
+        return;
+    }
+    
+    surfboard = std::make_shared<SceneObject>(surfboardTemplate);
+    surfboard->AddScale(-0.25f);
+    surfboard->Rotate(glm::vec3(SceneObject::GetWorldUp()), 1.5f);
+    surfboard->Rotate(glm::vec3(SceneObject::GetWorldRight()), 0.38f);
+    surfboard->Translate(glm::vec3(-0.2f,-2.f,-0.3f));
+    scene->AddSceneObject(surfboard);
     
     std::vector<std::shared_ptr<aiMaterial>> loadedMaterials;
     
@@ -198,8 +217,8 @@ void Assignment4::SetupExample2()
         sunsetTemplate[i]->SetShader(std::move(sunsetShader));
     }
     sunset = std::make_shared<SceneObject>(sunsetTemplate);
-    sunset->AddScale(1.5f);
-    sunset->Translate(glm::vec3(0.f,-15.f,-10.f));
+    sunset->AddScale(1.3f);
+    sunset->Translate(glm::vec3(0.f,-9.f,-10.f));
     scene->AddSceneObject(sunset);
     
     size_t placeholder = sunsetTemplate.size();
@@ -214,12 +233,12 @@ void Assignment4::SetupExample2()
     
     bottle = std::make_shared<SceneObject>(bottleTemplate);
     bottle->AddScale(-0.6f);
-    bottle->Rotate(glm::vec3(SceneObject::GetWorldUp()), 1.0f);
-    bottle->Translate(glm::vec3(0.f,-1.f,3.5f));
+    bottle->Rotate(glm::vec3(SceneObject::GetWorldUp()), -0.3f);
+    bottle->Translate(glm::vec3(0.f,-1.5f,0.f));
     scene->AddSceneObject(bottle);
     
     placeholder += bottleTemplate.size();
-
+    
     // glass
     std::vector<std::shared_ptr<RenderingObject>> glassTemplate = MeshLoader::LoadMesh(nullptr, "glass/glass.obj", &loadedMaterials);
     for (size_t i = 0; i < glassTemplate.size(); ++i) {
@@ -231,18 +250,18 @@ void Assignment4::SetupExample2()
     
     glass1 = std::make_shared<SceneObject>(glassTemplate);
     glass1->AddScale(-0.96f);
-    glass1->Translate(glm::vec3(-0.7f,-1.f,3.5f));
+    glass1->Translate(glm::vec3(-0.5f,-1.8f,0.7f));
     scene->AddSceneObject(glass1);
     
     glass2 = std::make_shared<SceneObject>(glassTemplate);
     glass2->AddScale(-0.96f);
-    glass2->Translate(glm::vec3(0.7f,-1.f,3.5f));
+    glass2->Translate(glm::vec3(0.3f,-2.f,0.7f));
     scene->AddSceneObject(glass2);
     
     placeholder += glassTemplate.size();
     
     // ocean
-    std::vector<std::shared_ptr<RenderingObject>> oceanTemplate = MeshLoader::LoadMesh(nullptr, "ocean/ocean.obj", &loadedMaterials);
+    std::vector<std::shared_ptr<RenderingObject>> oceanTemplate = MeshLoader::LoadMesh(nullptr, "ocean/big_ocean.obj", &loadedMaterials);
     for (size_t i = 0; i < oceanTemplate.size(); ++i) {
         std::shared_ptr<BlinnPhongShader> oceanShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
         oceanShader->LoadMaterialFromAssimp(loadedMaterials[placeholder + i]);
@@ -250,10 +269,24 @@ void Assignment4::SetupExample2()
     }
     
     ocean = std::make_shared<SceneObject>(oceanTemplate);
-    ocean->Rotate(glm::vec3(SceneObject::GetWorldRight()), 0.5f);
-    ocean->AddScale(10.0f);
-    ocean->Translate(glm::vec3(0.f,0.f,0.f));
+    ocean->Rotate(glm::vec3(SceneObject::GetWorldRight()), 0.4f);
+    ocean->AddScale(2.0f);
+    ocean->Translate(glm::vec3(-12.f,2.f,-10.f));
     scene->AddSceneObject(ocean);
+    
+    placeholder += oceanTemplate.size();
+    
+    //    // cloud
+    //    std::vector<std::shared_ptr<RenderingObject>> cloudTemplate = MeshLoader::LoadMesh(nullptr, "cloud/nuageux.obj", &loadedMaterials);
+    //    for (size_t i = 0; i < cloudTemplate.size(); ++i) {
+    //        std::shared_ptr<BlinnPhongShader> cloudShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
+    //        cloudShader->LoadMaterialFromAssimp(loadedMaterials[placeholder + i]);
+    //        cloudTemplate[i]->SetShader(std::move(cloudShader));
+    //    }
+    //
+    //    cloud = std::make_shared<SceneObject>(cloudTemplate);
+    //    cloud->Rotate(glm::vec3(SceneObject::GetWorldRight()), 0.4f);
+    //    scene->AddSceneObject(cloud);
 }
 
 void Assignment4::Tick(double deltaTime)
