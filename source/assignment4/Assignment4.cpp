@@ -274,19 +274,47 @@ void Assignment4::SetupExample2()
     ocean->Translate(glm::vec3(-12.f,2.f,-10.f));
     scene->AddSceneObject(ocean);
     
-    placeholder += oceanTemplate.size();
+    std::vector<std::shared_ptr<aiMaterial>> loadedMaterials2;
     
-    //    // cloud
-    //    std::vector<std::shared_ptr<RenderingObject>> cloudTemplate = MeshLoader::LoadMesh(nullptr, "cloud/nuageux.obj", &loadedMaterials);
-    //    for (size_t i = 0; i < cloudTemplate.size(); ++i) {
-    //        std::shared_ptr<BlinnPhongShader> cloudShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
-    //        cloudShader->LoadMaterialFromAssimp(loadedMaterials[placeholder + i]);
-    //        cloudTemplate[i]->SetShader(std::move(cloudShader));
-    //    }
-    //
-    //    cloud = std::make_shared<SceneObject>(cloudTemplate);
-    //    cloud->Rotate(glm::vec3(SceneObject::GetWorldRight()), 0.4f);
-    //    scene->AddSceneObject(cloud);
+    std::vector<std::shared_ptr<RenderingObject>> islandTemplate = MeshLoader::LoadMesh(nullptr, "island/island.obj", &loadedMaterials2);
+    for (size_t i = 0; i < islandTemplate.size(); ++i) {
+        std::shared_ptr<BlinnPhongShader> islandShader = std::make_shared<BlinnPhongShader>(shaderSpec, GL_FRAGMENT_SHADER);
+        islandShader->LoadMaterialFromAssimp(loadedMaterials2[i]);
+        islandTemplate[i]->SetShader(std::move(islandShader));
+    }
+    
+    island = std::make_shared<SceneObject>(islandTemplate);
+    island->AddScale(-0.95f);
+    island->Translate(glm::vec3(0.f,1.4f,-11.9f));
+    scene->AddSceneObject(island);
+    
+    island2 = std::make_shared<SceneObject>(islandTemplate);
+    island2->AddScale(-0.95f);
+    island2->Rotate(glm::vec3(SceneObject::GetWorldUp()), 0.4f);
+    island2->Translate(glm::vec3(-5.f,1.6f,-11.9f));
+    scene->AddSceneObject(island2);
+    
+    island3 = std::make_shared<SceneObject>(islandTemplate);
+    island3->AddScale(-0.96f);
+    island3->Translate(glm::vec3(-13.f,1.5f,-11.9f));
+    scene->AddSceneObject(island3);
+    
+    island4 = std::make_shared<SceneObject>(islandTemplate);
+    island4->AddScale(-0.95f);
+    island4->Translate(glm::vec3(5.4f,1.5f,-11.9f));
+    scene->AddSceneObject(island4);
+    
+    island5 = std::make_shared<SceneObject>(islandTemplate);
+    island5->AddScale(-0.94f);
+    island5->Rotate(glm::vec3(SceneObject::GetWorldUp()), 0.7f);
+    island5->Translate(glm::vec3(-15.f,1.f,-12.0f));
+    scene->AddSceneObject(island5);
+    
+    island6 = std::make_shared<SceneObject>(islandTemplate);
+    island6->AddScale(-0.95f);
+    island6->Rotate(glm::vec3(SceneObject::GetWorldUp()), 0.7f);
+    island6->Translate(glm::vec3(15.f,1.2f,-12.0f));
+    scene->AddSceneObject(island6);
 }
 
 void Assignment4::Tick(double deltaTime)
